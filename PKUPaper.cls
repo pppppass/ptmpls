@@ -9,6 +9,9 @@
 
 \ProvidesClass{PKUPaper}[2017/10/25 PKU-style paper class]
 
+\DeclareOption{english}{\def\PKUPaper@english\relax}
+\ProcessOptions
+
 \PassOptionsToPackage{no-math}{fontspec}
 
 \LoadClass[UTF8, hyperref, cs4size, fntef, fancyhdr, twoside]{ctexart}[2011/03/11]
@@ -99,3 +102,7 @@
 }
 
 \pagestyle{plain}
+
+\ifdefined\PKUPaper@english%
+\renewcommand\figurename{Figure}%
+\fi
