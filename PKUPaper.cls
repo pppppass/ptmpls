@@ -40,7 +40,7 @@
 
 \renewcommand\thefootnote%
 	{\protect\pkuthss@int@circled{\arabic{footnote}}}
-	
+
 \deffootnote{2\ccwd}{3.5\ccwd}{\thefootnotemark\hspace{0.75\ccwd}}
 
 \linespread{1.39}\selectfont
