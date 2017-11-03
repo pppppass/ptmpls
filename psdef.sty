@@ -140,6 +140,9 @@
 \RequirePackage{siunitx}%
 \let\Si\si%
 \let\si\relax%
+\sisetup{%
+input-symbols=\pi\spi\piup\dots\cdots,%
+}%
 \fi
 
 % Environments
@@ -148,6 +151,13 @@
 \fi
 \ifdefined\psdef@listings%
 \RequirePackage{listings}%
+\lstset{%
+basicstyle=\ttfamily,%
+keywordstyle=\ttfamily\color{blue!75!black},%
+commentstyle=\ttfamily\color{green!75!black},%
+stringstyle=\ttfamily\color{red!75!black},
+flexiblecolumns%
+}%
 \fi
 \ifdefined\psdef@longtable%
 \RequirePackage{longtable}%

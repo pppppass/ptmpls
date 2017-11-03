@@ -1,0 +1,50 @@
+%% Note template
+%
+%% noteTemplate.tex
+%
+% Written by pppppass (lzh2016p@pku.edu.cn), this file belongs to
+% public domain.
+%
+% Further information can be found in
+%   README.md
+% and an introduction to the whole project is included as well.
+
+% !TeX encoding = UTF-8 Unicode
+% !TeX program = LuaLaTeX
+% !TeX spellcheck = LaTeX
+
+% Author : lzh
+% Description : Note template
+
+\documentclass[english]{note}
+
+\usepackage[paper]{psdef}
+
+\addbibresource{TemplateBibliography.bib}
+
+\title{Title}
+\author{Author}
+
+\begin{document}
+
+	\maketitle
+
+	\tableofcontents
+
+\input{noteTemplatePart1.tex}
+
+\input{noteTemplatePart2.tex}
+
+\part{Part}
+
+\section{Section}
+
+\subsection{Subsection}
+
+Some contents. \parencite{Bibtexkey}
+
+中文支持. 也可以使用 \verb"nochinese" 选项禁止 \verb"ctex" 宏包的载入, 加速排版.
+
+	\printbibliography[heading=bibintoc]
+
+\end{document}

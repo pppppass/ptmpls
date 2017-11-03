@@ -51,5 +51,6 @@ beamercolorthemecrane.sty
 The following files belong to public domain:
 - `pkupaperTemplate.tex`, PKU-style paper template.
 - `pkuslideTemplate.tex`, PKU-style slide template.
-- `pkuslideTemplateBibliography.bib`, bibliography file for PKU-style slide
-template.
+- `noteTemplate.tex`, `noteTemplatePart1.tex`, `noteTemplatePart2.tex`,
+note templates.
+- `TemplateBibliography.bib`, bibliography file for all templates.
