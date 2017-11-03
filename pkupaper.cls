@@ -30,12 +30,12 @@
 \ProvidesClass{pkupaper}[2017/11/03 PKU-style paper class]
 
 % Declaration of options
-\DeclareOption{english}{\def\PKUPaper@english{\relax}}
+\DeclareOption{english}{\def\pkupaper@english{\relax}}
 \ProcessOptions\relax
 
 % Pass options
 \PassOptionsToPackage{no-math}{fontspec}
-\ifdefined\PKUPaper@english%
+\ifdefined\pkupaper@english%
 \PassOptionsToClass{scheme=plain}{ctexart}%
 \fi
 
