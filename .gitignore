@@ -5,3 +5,11 @@
 *.synctex.gz
 *.thm
 *~
+*.bak
+*.bbl
+*.bcf
+*.blg
+*.nav
+*.xml
+*.snm
+*.toc

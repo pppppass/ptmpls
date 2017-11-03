@@ -1,6 +1,8 @@
 # pppppass's TeX Templates
 
-This is a repository about TeX Templates made by pppppass, including a personal macro package, a PKU-style paper class, a PKU-style slide class and a note class.
+This is a repository about TeX Templates made by pppppass, including a
+personal macro package, a PKU-style paper class, a PKU-style slide
+class and a note class.
 
 ## License
 
@@ -25,10 +27,29 @@ The Current Maintainer of this work is pppppass (lzh2016p@pku.edu.cn).
 
 This work is derived from several other works (packages) in LPPL.
 
-- `yhmath` package (https://ctan.org/pkg/yhmath): section ` Math accents in yhmath` in `psdef.sty` is directly copied from `yhmath.sty` to define several math accents including `\widetilde`.
-- `ntheorem` package (https://ctan.org/pkg/ntheorem): section `New theorem styles` in `psdef.sty` is modified from the definitions of theorem style `plain` and `nonumberplain` in `ntheorem.sty`.
-- `cbgreek` package (https://ctan.org/pkg/cbgreek-complete): section `Upright greek letters from CB Greek fonts` in `psdef.sty` uses the CB Greek fonts.
-- `pkuthss` package (https://ctan.org/pkg/pkuthss): the whole `pkupaper.cls` is abstracted from `pkuthss.cls`, with slight modification to adapt to the personal macro package and some added comment lines.
+- `yhmath` package (https://ctan.org/pkg/yhmath): section
+` Math accents in yhmath` in `psdef.sty` is directly copied from
+`yhmath.sty` to define several math accents including `\widetilde`.
+- `ntheorem` package (https://ctan.org/pkg/ntheorem): section
+`New theorem styles` in `psdef.sty` is modified from the definitions
+of theorem style `plain` and `nonumberplain` in `ntheorem.sty`.
+- `cbgreek` package (https://ctan.org/pkg/cbgreek-complete): section
+`Upright greek letters from CB Greek fonts` in `psdef.sty` uses the
+CB Greek fonts.
+- `pkuthss` package (https://ctan.org/pkg/pkuthss): the whole
+`pkupaper.cls` is abstracted from `pkuthss.cls`, with slight
+modification to adapt to the personal macro package and some added
+comment lines.
+- `beamer` package (https://ctan.org/pkg/beamer): the color theme in
+`pkuslide.cls` is modified from `beamercolorthemecrane.sty`, with all
+color tuned to the theme color PKU red; the slide quotes in
+`pkuslide.cls` is modified from `beamerouterthemeinfolines.sty`, while
+the footline is customized for the quotes.
+
+beamercolorthemecrane.sty
 
 The following files belong to public domain:
 - `pkupaperTemplate.tex`, PKU-style paper template.
+- `pkuslideTemplate.tex`, PKU-style slide template.
+- `pkuslideTemplateBibliography.bib`, bibliography file for PKU-style slide
+template.
