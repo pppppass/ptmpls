@@ -1,0 +1,90 @@
+%% PKU-style paper template
+%
+%% pkupaperTemplate.tex
+%
+% Written by pppppass (lzh2016p@pku.edu.cn), this file belongs to
+% public domain.
+%
+% Further information can be found in
+%   README.md
+% and an introduction to the whole project is included as well.
+
+% !TeX encoding = UTF-8 Unicode
+% !TeX program = LuaLaTeX
+% !TeX spellcheck = LaTeX
+
+% Author : pppppass
+% Description : PKU-style paper template
+
+\documentclass[english]{pkupaper}
+
+\usepackage[paper, tikz]{psdef}
+
+\usepackage{lipsum}
+
+\newcommand{\cuniversity}{Peking University}
+\newcommand{\cthesisname}{Thesis Subject}
+\newcommand{\titlemark}{Theis Title}
+
+\counterwithout{thmquestion}{part}
+\counterwithout{equation}{part}
+
+\usetikzlibrary{graphs, graphdrawing}
+\usegdlibrary{trees}
+
+\title{\titlemark}
+\author{%
+	\begin{tabular}{c}
+Someone \\
+Information
+	\end{tabular}%
+}
+
+	\begin{document}
+
+	\maketitle
+
+Here is some content.
+
+\lipsum[1]
+
+\begin{table}[htbp]
+\caption{A table} \label{Tbl:ATable}
+\centering
+\begin{tabular}{c|cc}
+A & B & C \\
+\hline
+D & E & F
+\end{tabular}
+\end{table}
+
+\begin{thmdefinition}
+This is a definition. You may refer to Table \ref{Tbl:ATable} and Figure \ref{Fig:BinaryTreeForest}.
+\end{thmdefinition}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[binary tree layout]
+\graph
+{
+	[fresh nodes]
+	A --
+	{
+		C --
+		{
+			D -- E[second],
+			F
+		},
+		G
+	},
+	G -- H[second] -- I -- H[second] -- I
+};
+\end{tikzpicture}
+\caption{A forest of binary trees} \label{Fig:BinaryTreeForest}
+\end{figure}
+
+\begin{equation}
+a_n = \frac{1}{\spi} \intb{-\spi}{\spi}{ f \rbr{x} \cos n x \sd x } \uppi
+\end{equation}
+
+	\end{document}
