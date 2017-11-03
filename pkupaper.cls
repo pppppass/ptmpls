@@ -44,11 +44,9 @@
 
 % Load packages
 \RequirePackage{ifpdf, ifxetex}
-\RequirePackage{graphicx}[1999/02/16]
 \RequirePackage{geometry}
 \RequirePackage[defaultsups]{newtxtext}
 \RequirePackage{newtxmath}
-\RequirePackage{latexsym}
 \RequirePackage{tikz}
 \RequirePackage[cleardoublepage = current]{scrextend}
 \RequirePackage[titles]{tocloft}
