@@ -52,9 +52,6 @@
 \RequirePackage{amsmath}
 \RequirePackage[backend=biber, url=false, autolang=other]{biblatex}
 
-% Set part numbering
-\renewcommand\thepart{\arabic{part}}
-
 % Page layout
 \geometry{a4paper, top=1in, bottom=1in, left=1.25in, right=1.25in}
 
