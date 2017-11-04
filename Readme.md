@@ -7,7 +7,6 @@ class and a note class.
 ## License
 
 The following files forms a work under LPPL license:
-- `Readme.md`, readme file.
 - `psdef.sty`, pppppass' personal macro package.
 - `pkupaper.cls`, PKU-style paper (article) class.
 - `pkuslide.cls`, PKU-style slide (beamer) class.
@@ -49,6 +48,7 @@ the footline is customized for the quotes.
 beamercolorthemecrane.sty
 
 The following files belong to public domain:
+- `Readme.md`, readme file.
 - `pkupaperTemplate.tex`, PKU-style paper template.
 - `pkuslideTemplate.tex`, PKU-style slide template.
 - `noteTemplate.tex`, `noteTemplatePart1.tex`, `noteTemplatePart2.tex`,
