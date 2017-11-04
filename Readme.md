@@ -1,4 +1,4 @@
-# pppppass's TeX Templates
+# pppppass' TeX Templates
 
 This is a repository about TeX Templates made by pppppass, including a
 personal macro package, a PKU-style paper class, a PKU-style slide
