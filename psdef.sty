@@ -46,6 +46,7 @@
 \DeclareOption{longtable}{\def\psdef@longtable{\relax}}
 \DeclareOption{chemfig}{\def\psdef@chemfig{\relax}}
 \DeclareOption{tikz}{\def\psdef@tikz{\relax}}
+\DeclareOption{cd}{\def\psdef@cd{\relax}}
 \DeclareOption{paper}{\def\psdef@paper{\relax}}
 \DeclareOption{english}{\def\psdef@english{\relax}}
 \DeclareOption{secnumbered}{\def\psdef@secnumbered{\relax}}
@@ -167,6 +168,9 @@ flexiblecolumns%
 \fi
 \ifdefined\psdef@tikz%
 \RequirePackage{tikz}%
+\fi
+\ifdefined\psdef@cd%
+\RequirePackage{tikz-cd}%
 \fi
 
 % Miscellaneous packages
