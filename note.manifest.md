@@ -19,13 +19,7 @@ This work has the LPPL maintenance status *maintained*.
 
 The Current Maintainer of this work is pppppass (lzh2016p@pku.edu.cn).
 
-This work is derived from several other works (packages) in LPPL.
-
-- `pkuthss` package (https://ctan.org/pkg/pkuthss): the whole
-`pkupaper.cls` is abstracted from `pkuthss.cls`, with slight
-modification to adapt to the personal macro package and some added
-comment lines.
-
 The following files belong to public domain:
 - `noteTemplate.tex`, `noteTemplatePart1.tex`, `noteTemplatePart2.tex`,
 note templates.
+- `TemplateBibliography.bib`, bibliography file for all templates.
