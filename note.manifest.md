@@ -6,6 +6,7 @@ This is a note document class made by pppppass.
 
 The following files forms a work under LPPL license:
 - `note.cls`, note class.
+- `note.manifest.md`, introduction and manifest.
 
 This work may be distributed and/or modified under the
 conditions of the LaTeX Project Public License, either version 1.3
