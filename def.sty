@@ -1,6 +1,6 @@
 %% ppppass' personal macro package
 %
-%% psdef.sty
+%% def.sty
 %
 %% Copyright 2017 pppppass
 %
@@ -19,7 +19,7 @@
 %
 % Lists of contents of this work and modification information can be
 % found in
-%   README.md
+%   def.manifest.md
 % and an introduction is included as well.
 %
 % This file cannot be typeset directly. It is recommended to typeset
@@ -27,29 +27,29 @@
 
 % Identification
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{psdef}[2017/11/05 ppppass' personal macro package]
+\ProvidesPackage{def}[2017/11/16 ppppass' personal macro package]
 
 % Option declarations
-\DeclareOption{cancel}{\def\psdef@cancel{\relax}}
-\DeclareOption{ulem}{\def\psdef@ulem{\relax}}
-\DeclareOption{esint}{\def\psdef@esint{\relax}}
-\DeclareOption{esvect}{\def\psdef@esvect{\relax}}
-\DeclareOption{tensor}{\def\psdef@tensor{\relax}}
-\DeclareOption{mathrsfs}{\def\psdef@mathrsfs{\relax}}
-\DeclareOption{upgreek}{\def\psdef@upgreek{\relax}}
-\DeclareOption{yhaccent}{\def\psdef@yhaccent{\relax}}
-\DeclareOption{cmrgreekup}{\def\psdef@cmrgreekup{\relax}}
-\DeclareOption{safebm}{\def\psdef@safebm{\relax}}
-\DeclareOption{si}{\def\psdef@si{\relax}}
-\DeclareOption{algorithm}{\def\psdef@algorithm{\relax}}
-\DeclareOption{listings}{\def\psdef@listings{\relax}}
-\DeclareOption{longtable}{\def\psdef@longtable{\relax}}
-\DeclareOption{chemfig}{\def\psdef@chemfig{\relax}}
-\DeclareOption{tikz}{\def\psdef@tikz{\relax}}
-\DeclareOption{cd}{\def\psdef@cd{\relax}}
-\DeclareOption{paper}{\def\psdef@paper{\relax}}
-\DeclareOption{english}{\def\psdef@english{\relax}}
-\DeclareOption{secnumbered}{\def\psdef@secnumbered{\relax}}
+\DeclareOption{cancel}{\def\pppppassdef@cancel{\relax}}
+\DeclareOption{ulem}{\def\pppppassdef@ulem{\relax}}
+\DeclareOption{esint}{\def\pppppassdef@esint{\relax}}
+\DeclareOption{esvect}{\def\pppppassdef@esvect{\relax}}
+\DeclareOption{tensor}{\def\pppppassdef@tensor{\relax}}
+\DeclareOption{mathrsfs}{\def\pppppassdef@mathrsfs{\relax}}
+\DeclareOption{upgreek}{\def\pppppassdef@upgreek{\relax}}
+\DeclareOption{yhaccent}{\def\pppppassdef@yhaccent{\relax}}
+\DeclareOption{cmrgreekup}{\def\pppppassdef@cmrgreekup{\relax}}
+\DeclareOption{safebm}{\def\pppppassdef@safebm{\relax}}
+\DeclareOption{si}{\def\pppppassdef@si{\relax}}
+\DeclareOption{algorithm}{\def\pppppassdef@algorithm{\relax}}
+\DeclareOption{listings}{\def\pppppassdef@listings{\relax}}
+\DeclareOption{longtable}{\def\pppppassdef@longtable{\relax}}
+\DeclareOption{chemfig}{\def\pppppassdef@chemfig{\relax}}
+\DeclareOption{tikz}{\def\pppppassdef@tikz{\relax}}
+\DeclareOption{cd}{\def\pppppassdef@cd{\relax}}
+\DeclareOption{paper}{\def\pppppassdef@paper{\relax}}
+\DeclareOption{english}{\def\pppppassdef@english{\relax}}
+\DeclareOption{secnumbered}{\def\pppppassdef@secnumbered{\relax}}
 
 % Process options
 \ProcessOptions\relax
@@ -65,30 +65,30 @@
 \setcounter{MaxMatrixCols}{30}
 
 % Font and symbol packages
-\ifdefined\psdef@cancel%
+\ifdefined\pppppassdef@cancel%
 \RequirePackage{cancel}%
 \fi
-\ifdefined\psdef@ulem%
+\ifdefined\pppppassdef@ulem%
 \RequirePackage[normalem]{ulem}%
 \fi
-\ifdefined\psdef@esint%
+\ifdefined\pppppassdef@esint%
 \RequirePackage{esint}%
 \fi
-\ifdefined\psdef@esvect%
+\ifdefined\pppppassdef@esvect%
 \RequirePackage{esvect}%
 \fi
-\ifdefined\psdef@tensor%
+\ifdefined\pppppassdef@tensor%
 \RequirePackage{tensor}%
 \fi
-\ifdefined\psdef@mathrsfs%
+\ifdefined\pppppassdef@mathrsfs%
 \RequirePackage{mathrsfs}%
 \fi
-\ifdefined\psdef@upgreek%
+\ifdefined\pppppassdef@upgreek%
 \RequirePackage[Symbolsmallscale]{upgreek}%
 \fi
 
 % Math accents in yhmath
-\ifdefined\psdef@yhaccent%
+\ifdefined\pppppassdef@yhaccent%
 \DeclareSymbolFont{largesymbolsyhmath}{OMX}{yhex}{m}{n}%
 \DeclareMathAccent{\widetilde}{\mathord}{largesymbolsyhmath}{"65}%
 \DeclareMathAccent{\widehat}{\mathord}{largesymbolsyhmath}{"62}%
@@ -97,7 +97,7 @@
 \fi
 
 % Upright greek letters from CB Greek fonts
-\ifdefined\psdef@cmrgreekup%
+\ifdefined\pppppassdef@cmrgreekup%
 \RequirePackage[LGR,T1]{fontenc}%
 \DeclareSymbolFont{greekupcbgreek}{LGR}{cmr}{m}{n}%
 \SetSymbolFont{greekupcbgreek}{bold}{LGR}{cmr}{m}{n}%
@@ -129,7 +129,7 @@
 % Preserve symbol fonts
 % Note that this results in low speed, and bm package is always
 % introduced
-\ifdefined\psdef@safebm%
+\ifdefined\pppppassdef@safebm%
 \newcommand\hmmax{0}%
 \newcommand\bmmax{0}%
 \fi
@@ -137,7 +137,7 @@
 
 % SI units
 % Note that the \si command in siunitx is renamed to be \Si
-\ifdefined\psdef@si%
+\ifdefined\pppppassdef@si%
 \RequirePackage{siunitx}%
 \let\Si\si%
 \let\si\relax%
@@ -147,10 +147,10 @@ input-symbols=\pi\spi\piup\dots\cdots,%
 \fi
 
 % Environments
-\ifdefined\psdef@algorithm%
+\ifdefined\pppppassdef@algorithm%
 \RequirePackage{algorithm2e}%
 \fi
-\ifdefined\psdef@listings%
+\ifdefined\pppppassdef@listings%
 \RequirePackage{listings}%
 \lstset{%
 basicstyle=\ttfamily,%
@@ -160,16 +160,16 @@ stringstyle=\ttfamily\color{red!75!black},
 flexiblecolumns%
 }%
 \fi
-\ifdefined\psdef@longtable%
+\ifdefined\pppppassdef@longtable%
 \RequirePackage{longtable}%
 \fi
-\ifdefined\psdef@chemfig%
+\ifdefined\pppppassdef@chemfig%
 \RequirePackage{chemfig}%
 \fi
-\ifdefined\psdef@tikz%
+\ifdefined\pppppassdef@tikz%
 \RequirePackage{tikz}%
 \fi
-\ifdefined\psdef@cd%
+\ifdefined\pppppassdef@cd%
 \RequirePackage{tikz-cd}%
 \fi
 
@@ -342,7 +342,7 @@ flexiblecolumns%
 \newcommand{\si}{\mathrm{i}}
 \newcommand{\sqed}{\hfill$\Box$}
 \newcommand{\mendash}{\text{--}}
-\ifdefined\psdef@cmrgreekup%
+\ifdefined\pppppassdef@cmrgreekup%
 \newcommand{\spi}{\piup}%
 \else%
 \ifdefined\uppi%
@@ -575,7 +575,7 @@ flexiblecolumns%
 \newcommand{\iiintub}[4][]{\underline{\iiint#1_{#2}^{#3}}{#4}}
 \newcommand{\iiintul}[3][]{\underline{\iiint#1_{#2}}{#3}}
 \newcommand{\iiintun}[2][]{\underline{\iiint#1}{#2}}
-\ifdefined\psdef@esint%
+\ifdefined\pppppassdef@esint%
 \newcommand{\ointb}[4][]{\oint#1_{#2}^{#3}{#4}}%
 \newcommand{\ointl}[3][]{\oint#1_{#2}{#3}}%
 \newcommand{\ointn}[2][]{\oint#1{#2}}%
@@ -613,12 +613,12 @@ flexiblecolumns%
 \newcommand{\ptop}[1]{\mathop{\phantom{#1}}}
 
 % Theorem and enumerate environments for papers
-\ifdefined\psdef@paper%
+\ifdefined\pppppassdef@paper%
 \RequirePackage{ntheorem}%
 \RequirePackage{enumitem}%
 %
 % Localization words
-\ifdefined\psdef@english%
+\ifdefined\pppppassdef@english%
 \newcommand{\thmdefinitionname}{Definition}%
 \newcommand{\thmconceptname}{Concept}%
 \newcommand{\thmnotationname}{Notation}%
@@ -752,7 +752,7 @@ flexiblecolumns%
 }%
 %
 % Set counter style
-\ifdefined\psdef@secnumbered\then%
+\ifdefined\pppppassdef@secnumbered\then%
 \numberwithin{thmdefinition}{section}%
 \numberwithin{thmconcept}{section}%
 \numberwithin{thmnotation}{section}%
@@ -772,7 +772,7 @@ flexiblecolumns%
 \fi
 
 % Set counter style
-\ifdefined\psdef@secnumbered\then%
+\ifdefined\pppppassdef@secnumbered\then%
 \numberwithin{equation}{section}%
 \numberwithin{figure}{section}%
 \numberwithin{table}{section}%
