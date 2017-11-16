@@ -19,7 +19,7 @@
 %
 % Lists of contents of this work and modification information can be
 % found in
-%   README.md
+%   pkuslide.manifest.md
 % and an introduction is included as well.
 %
 % This file cannot be typeset directly. It is recommended to typeset
@@ -27,7 +27,7 @@
 
 % Identification
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{pkuslide}[2017/11/03 PKU-style slide class]
+\ProvidesClass{pkuslide}[2017/11/15 PKU-style slide class]
 
 % Declaration of options
 \DeclareOption{english}{\def\pkuslide@english{\relax}}
