@@ -19,7 +19,7 @@
 %
 % Lists of contents of this work and modification information can be
 % found in
-%   README.md
+%   note.manifest.md
 % and an introduction is included as well.
 %
 % This file cannot be typeset directly. It is recommended to typeset
@@ -27,7 +27,7 @@
 
 % Identification
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{note}[2017/11/03 Note class]
+\ProvidesClass{note}[2017/11/15 Note class]
 
 % Declaration of options
 \DeclareOption{english}{\def\note@english{\relax}}
