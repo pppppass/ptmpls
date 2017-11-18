@@ -27,7 +27,7 @@
 
 % Identification
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{pkuslide}[2017/11/15 PKU-style slide class]
+\ProvidesClass{pkuslide}[2017/11/19 PKU-style slide class]
 
 % Declaration of options
 \DeclareOption{english}{\def\pkuslide@english{\relax}}
@@ -35,11 +35,11 @@
 
 % Pass options
 \ifdefined\pkuslide@english%
-\PassOptionsToPackage{scheme=plain}{ctex}%
+\PassOptionsToClass{scheme=plain}{ctexbeamer}%
 \fi
 
 % Load class
-\LoadClass[UTF8]{beamer}
+\LoadClass[UTF8]{ctexbeamer}
 
 % Load packages
 \RequirePackage{ctex}
