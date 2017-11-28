@@ -20,7 +20,7 @@
 
 \documentclass[english]{pkupaper}
 
-\usepackage[paper, tikz]{def}
+\usepackage[paper, tikz, algorithm]{def}
 
 \usepackage{lipsum}
 
@@ -93,5 +93,73 @@ This is a question
 \begin{thmquestion}
 Another question
 \end{thmquestion}
+
+\begin{algorithm}
+\SetAlgoLined
+
+\KwData{Two linked list of strictly increasing elements with head $A$ and $B$ respectively}
+\KwResult{A linked list of strictly increasing elements with head $C$, representing the union of $A$ and $B$}
+
+\SetKwData{Sa}{S1}
+\SetKwData{Sb}{S2}
+\SetKwData{Ele}{element}
+\SetKwProg{Func}{Function}{}{end}
+\SetKwFunction{Dout}{dump\_out}
+\SetKwFunction{Din}{dump\_in}
+\SetKwFunction{Push}{PUSH}
+\SetKwFunction{Pop}{POP}
+\SetKwFunction{IsEmpty}{Sempty}
+\SetKwFunction{Enqueue}{enqueue}
+\SetKwFunction{Dequeue}{dequeue}
+\SetKwFunction{QueueEmpty}{queue\_empty}
+
+$A \slar b$\;
+
+\Func{\Dout{}}
+{
+	\KwData{None}
+	\KwResult{Dump stack elements from $S_1$ to $S_2$}
+	
+	\BlankLine
+	
+	\While{not \IsEmpty{$S_1$}}
+	{
+		\Pop{$S_1$, \Ele}\;
+		\Push{$S_2$, \Ele}\;
+	}
+}
+
+\BlankLine
+
+\Func{\Din{}}
+{
+	\KwData{None}
+	\KwResult{Dump stack elements from $S_2$ to $S_1$}
+	
+	\BlankLine
+	
+	\While{not \IsEmpty{$S_2$}}
+	{
+		\Pop{$S_2$, \Ele}\;
+		\Push{$S_1$, \Ele}\;
+	}
+}
+
+\BlankLine
+
+\Func{\Enqueue{\Ele}}
+{
+	\KwData{Some \Ele}
+	\KwResult{Push \Ele to the back of the queue}
+	
+	\BlankLine
+	
+	\Push{$S_1$, \Ele}\;
+}
+
+\SetAlgoRefName{1}
+
+\caption{Implement a queue by two stacks}
+\end{algorithm}
 
 	\end{document}
