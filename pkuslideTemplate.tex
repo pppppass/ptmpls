@@ -18,7 +18,7 @@
 % Author : pppppass
 % Description : PKU-style slide template
 
-\documentclass[english]{pkuslide}
+\documentclass[english, nochinese]{pkuslide}
 
 \usepackage[cmrgreekup]{def}
 
@@ -63,6 +63,10 @@ Some other things.
 
 	\begin{frame}{中文}
 基本的中文支持.
+
+\begin{beamercolorbox}{titlelike}
+Note that partial chinese support with \texttt{english} will crash because API of package \texttt{ctex} is changed. This issue will be resolved soon. Please use \texttt{nochinese} option to remove any chinese support.
+\end{beamercolorbox}
 	\end{frame}
 
 \section{Another section}

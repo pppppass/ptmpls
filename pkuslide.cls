@@ -13,7 +13,7 @@
 % version 2005/12/01 or later.
 %
 % This work has the LPPL maintenance status `maintained'.
-% 
+%
 % The Current Maintainer of this work is pppppass
 % (lzh2016p@pku.edu.cn).
 %
@@ -27,22 +27,28 @@
 
 % Identification
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{pkuslide}[2017/11/19 PKU-style slide class]
+\ProvidesClass{pkuslide}[2017/12/01 PKU-style slide class]
 
 % Declaration of options
 \DeclareOption{english}{\def\pkuslide@english{\relax}}
 \ProcessOptions\relax
+\DeclareOption{nochinese}{\def\pkuslide@nochinese{\relax}}
+\ProcessOptions\relax
 
+\ifdefined\pkuslide@nochinese%
+% Load class
+\LoadClass[UTF8]{beamer}%
+\else%
 % Pass options
 \ifdefined\pkuslide@english%
 \PassOptionsToClass{scheme=plain}{ctexbeamer}%
+\fi%
+%
+% Load class
+\LoadClass[UTF8]{ctexbeamer}%
 \fi
 
-% Load class
-\LoadClass[UTF8]{ctexbeamer}
-
 % Load packages
-\RequirePackage{ctex}
 \RequirePackage[backend=biber, url=false, autolang=other]{biblatex}
 
 % Themes
@@ -80,7 +86,7 @@
 \setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!25!bg}
 %
 \setbeamercolor{sidebar}{bg=pkured!90}
-% 
+%
 \setbeamercolor{palette sidebar primary}{fg=gray!10}
 \setbeamercolor{palette sidebar secondary}{fg=pkured!20}
 \setbeamercolor{palette sidebar tertiary}{fg=pkured!20}
