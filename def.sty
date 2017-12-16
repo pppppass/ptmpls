@@ -22,12 +22,12 @@
 %   def.manifest.md
 % and an introduction is included as well.
 %
-% This file cannot be typeset directly. When using this file
-% by \usepackage{...}, it is recommended to typeset with LuaLaTeX.
+% This file cannot be typeset directly. It is recommended to typeset
+% with LuaLaTeX.
 
 % Identification
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{def}[2017/12/15 ppppass' personal macro package]
+\ProvidesPackage{def}[2017/12/16 ppppass' personal macro package]
 
 % Option declarations
 \DeclareOption{cancel}{\def\pppppassdef@cancel{\relax}}
@@ -142,7 +142,8 @@
 \let\Si\si%
 \let\si\relax%
 \sisetup{%
-input-symbols=\pi\spi\piup\dots\cdots,%
+input-symbols = \pi\spi\piup\dots\cdots,%
+binary-units = true,%
 }%
 \fi
 
