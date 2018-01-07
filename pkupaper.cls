@@ -133,3 +133,6 @@
 	\fancyhead[CO]{\zihao{5}\normalfont\pkupaper@int@setcase{\titlemark}}
 }
 \pagestyle{plain}
+
+% Commands
+\def\cleanthanks{\def\@thanks{}}
