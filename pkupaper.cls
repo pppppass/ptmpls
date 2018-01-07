@@ -2,7 +2,7 @@
 %
 %% pkupaper.cls
 %
-%% Copyright 2017 pppppass
+%% Copyright 2017--2018 pppppass
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -27,7 +27,7 @@
 
 % Identification
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{pkupaper}[2017/12/15 PKU-style paper class]
+\ProvidesClass{pkupaper}[2017/01/07 PKU-style paper class]
 
 % Declaration of options
 \DeclareOption{english}{\def\pkupaper@english{\relax}}
@@ -40,7 +40,7 @@
 \fi
 
 % Load basic class
-\LoadClass[UTF8, zihao=-4, twoside]{ctexart}[2011/03/11]
+\LoadClass[UTF8, zihao=-4, twoside]{ctexart}
 
 % Load packages
 \RequirePackage{ifpdf, ifxetex}
@@ -53,6 +53,7 @@
 \RequirePackage{caption, subcaption}
 \RequirePackage{setspace}
 \RequirePackage{fancyhdr}
+\RequirePackage{titling}
 \RequirePackage{hyperref}
 \RequirePackage{enumitem}
 
@@ -132,3 +133,6 @@
 	\fancyhead[CO]{\zihao{5}\normalfont\pkupaper@int@setcase{\titlemark}}
 }
 \pagestyle{plain}
+
+% Commands
+\def\cleanthanks{\def\@thanks{}}
