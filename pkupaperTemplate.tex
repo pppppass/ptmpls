@@ -1,6 +1,6 @@
-% !TeX encoding = UTF-8 Unicode
+% !TeX encoding = UTF-8
 % !TeX program = LuaLaTeX
-% !TeX spellcheck = LaTeX
+% !TeX spellcheck = en_US
 
 %% PKU-style paper template
 %
@@ -21,7 +21,6 @@
 \documentclass[english]{pkupaper}
 
 \usepackage[paper, tikz, algorithm]{def}
-
 \usepackage{lipsum}
 
 \newcommand{\cuniversity}{Peking University}
@@ -31,13 +30,16 @@
 \usetikzlibrary{graphs, graphdrawing}
 \usegdlibrary{trees}
 
-\title{\titlemark}
-\author{%
-	\begin{tabular}{c}
-Someone \\
-Information
+\DeclareRobustCommand{\authoring}%
+{%
+	\begin{tabular}{c}%
+		Someone \\%
+		Information%
 	\end{tabular}%
 }
+
+\title{\titlemark}
+\author{\authoring}
 
 	\begin{document}
 
