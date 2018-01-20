@@ -1,4 +1,7 @@
-%% PKU-style paper class
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+
+%% PKU-style paper class v1.0.1 2017/01/20
 %
 %% pkupaper.cls
 %
@@ -27,7 +30,7 @@
 
 % Identification
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{pkupaper}[2017/01/08 PKU-style paper class]
+\ProvidesClass{pkupaper}[2017/01/20 PKU-style paper class v1.0.1]
 
 % Declaration of options
 \DeclareOption{english}{\def\pkupaper@english{\relax}}

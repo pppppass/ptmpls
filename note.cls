@@ -1,8 +1,11 @@
-%% Note class
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+
+%% Note class v1.0.1 2018/01/20
 %
 %% note.cls
 %
-%% Copyright 2017 pppppass
+%% Copyright 2017--2018 pppppass
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -27,7 +30,7 @@
 
 % Identification
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{note}[2017/12/15 Note class]
+\ProvidesClass{note}[2018/01/20 Note class v1.0.1]
 
 % Declaration of options
 \DeclareOption{english}{\def\note@english{\relax}}

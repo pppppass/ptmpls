@@ -1,4 +1,7 @@
-%% ppppass' personal macro package
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+
+%% ppppass' personal macro package v1.0.1 2018/01/20
 %
 %% def.sty
 %
@@ -22,12 +25,12 @@
 %   def.manifest.md
 % and an introduction is included as well.
 %
-% This file cannot be typeset directly. It is recommended to typeset
-% with LuaLaTeX.
+% This file cannot be typeset directly. When using this file
+% by \usepackage{...}, it is recommended to typeset with LuaLaTeX.
 
 % Identification
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{def}[2018/01/08 ppppass' personal macro package]
+\ProvidesPackage{def}[2018/01/20 ppppass' personal macro package v1.0.1]
 
 % Option declarations
 \DeclareOption{cancel}{\def\pppppassdef@cancel{\relax}}
@@ -41,6 +44,8 @@
 \DeclareOption{cmrgreekup}{\def\pppppassdef@cmrgreekup{\relax}}
 \DeclareOption{safebm}{\def\pppppassdef@safebm{\relax}}
 \DeclareOption{si}{\def\pppppassdef@si{\relax}}
+\DeclareOption{extables}{\def\pppppassdef@extables{\relax}}
+\DeclareOption{pgf}{\def\pppppassdef@pgf{\relax}}
 \DeclareOption{algorithm}{\def\pppppassdef@algorithm{\relax}}
 \DeclareOption{listings}{\def\pppppassdef@listings{\relax}}
 \DeclareOption{longtable}{\def\pppppassdef@longtable{\relax}}
@@ -148,6 +153,13 @@ binary-units = true,%
 \fi
 
 % Environments
+\ifdefined\pppppassdef@extables%
+\RequirePackage{multirow}%
+\RequirePackage{makecell}%
+\fi
+\ifdefined\pppppassdef@pgf%
+\RequirePackage{pgf}%
+\fi
 \ifdefined\pppppassdef@algorithm%
 \RequirePackage{algorithm2e}%
 \fi

@@ -1,8 +1,11 @@
-%% PKU-style slide class
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+
+%% PKU-style slide class v1.0.1 2018/01/20
 %
 %% pkuslide.cls
 %
-%% Copyright 2017 pppppass
+%% Copyright 2017--2018 pppppass
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either version 1.3
@@ -27,7 +30,7 @@
 
 % Identification
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{pkuslide}[2017/12/15 PKU-style slide class]
+\ProvidesClass{pkuslide}[2018/01/20 PKU-style slide class v1.0.1]
 
 % Declaration of options
 \DeclareOption{english}{\def\pkuslide@english{\relax}}
