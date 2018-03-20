@@ -2,7 +2,7 @@
 % !TeX program = LuaLaTeX
 % !TeX spellcheck = en_US
 
-%% PKU-style slide template v1.0.1 2018/01/20
+%% PKU-style slide template v1.0.2 2018/03/20
 %
 %% pkuslideTemplate.tex
 %
@@ -42,50 +42,50 @@
 \subject{Title}
 \keywords{}
 
-	\begin{document}
+\begin{document}
 
-	\begin{frame}
+\begin{frame}
 \titlepage
-	\end{frame}
+\end{frame}
 
-	\begin{frame}
+\begin{frame}
 \tableofcontents[subsectionstyle=show]
-	\end{frame}
+\end{frame}
 
 \section{A section}
 
 \subsection{Subsection}
 
-	\begin{frame}{Something}
+\begin{frame}{Something}
 \centering
 Some other things.
-	\end{frame}
+\end{frame}
 
-	\begin{frame}{中文}
+\begin{frame}{中文}
 基本的中文支持.
 
 \begin{beamercolorbox}{titlelike}
 Note that partial chinese support with \texttt{english} will crash because API of package \texttt{ctex} is changed. This issue will be resolved soon. Please use \texttt{nochinese} option to remove any chinese support.
 \end{beamercolorbox}
-	\end{frame}
+\end{frame}
 
 \section{Another section}
 
-	\frame{\sectionpage}
+\frame{\sectionpage}
 
-	\begin{frame}{Title}{Subtitle}
+\begin{frame}{Title}{Subtitle}
 Normal texts.
 \begin{enumerate}
 \item An enumerate item;
 \item Another enumerate item.
 \end{enumerate}
-	\end{frame}
+\end{frame}
 
 \section{A section}
 
-	\frame{\sectionpage}
+\frame{\sectionpage}
 
-	\begin{frame}{Title}{Subtitle}
+\begin{frame}{Title}{Subtitle}
 Normal texts.
 \begin{Thm}[A theorem]
 A theorem environment with \alert{alerted} texts.
@@ -96,44 +96,43 @@ Example texts with \alert{alerted} texts.
 \begin{alertblock}{Alerted block}
 Alerted texts.
 \end{alertblock}
-	\end{frame}
+\end{frame}
 
-	\begin{frame}
+\begin{frame}
 This frame has no title.
 \begin{ColoredThm}[A theorem block with specialized background]
 \usebeamercolor{Thm title}
 A colored theorem environment with \alert{alerted} texts.
 \end{ColoredThm}
-
-	\end{frame}
+\end{frame}
 
 \subsection{A subsection}
 
-	\frame{\sectionpage}
+\frame{\sectionpage}
 
-	\begin{frame}{Title}{Subtitle}
+\begin{frame}{Title}{Subtitle}
 Texts for a subsection.
 \begin{equation}
 a_n = \frac{1}{\spi} \intb{-\spi}{\spi}{ f \rbr{x} \cos n x \sd x }
 \end{equation}
-	\end{frame}
+\end{frame}
 
 \section{BibLaTex}
 
-	\frame{\sectionpage}
+\frame{\sectionpage}
 
-	\begin{frame}{BibLaTeX Test}
+\begin{frame}{BibLaTeX Test}
 This is a test for \parencite{Bibtexkey}.
-	\end{frame}
+\end{frame}
 
 \section{Quote slides}
 
 % To test slide quotes, one may make a copy of the output and rename
 % it to be pkuslideTemplateQuote.pdf
 \IfFileExists{pkuslideTemplateQuote.pdf}{
-	\begin{quoteslide}
+\begin{quoteslide}
 \includepdf[pagecommand=\quotefootnote{Some footnote}, pages=1, scale=0.8]{pkuslideTemplateQuote.pdf}
-	\end{quoteslide}
+\end{quoteslide}
 }
 {}
 
@@ -141,18 +140,18 @@ This is a test for \parencite{Bibtexkey}.
 
 \subsection{Reference}
 
-	\begin{frame}{Reference}
+\begin{frame}{Reference}
 \printbibliography[heading=none]
-	\end{frame}
+\end{frame}
 
 \section{Thanks}
 
-	\begin{frame}
+\begin{frame}
 \LARGE
 \begin{beamercolorbox}[center, ht=3em]{titlelike}
 \vspace{1em}
 Thanks!
 \end{beamercolorbox}
-	\end{frame}
+\end{frame}
 
-	\end{document}
+\end{document}
