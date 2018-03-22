@@ -116,6 +116,6 @@
 {}
 \newcommand\quotefootnote[1]%
 {{%
-\hspace{0pt}\par\vspace{\stretch{1}}\parbox{0.9\paperwidth}{#1}\vspace{0.75ex}%
+\par\hspace{0pt}\\\vspace{\stretch{1}}\parbox{0.9\paperwidth}{#1}%
 \global\setcounter{framenumber}{\value{page}}
 }}
