@@ -1,7 +1,7 @@
 % !TeX encoding = UTF-8
 % !TeX spellcheck = en_US
 
-%% PKU-style slide class v1.0.1 2018/01/20
+%% PKU-style slide class v1.0.2 2018/03/22
 %
 %% pkuslide.cls
 %
@@ -30,7 +30,7 @@
 
 % Identification
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{pkuslide}[2018/01/20 PKU-style slide class v1.0.1]
+\ProvidesClass{pkuslide}[2018/03/22 PKU-style slide class v1.0.2]
 
 % Declaration of options
 \DeclareOption{english}{\def\pkuslide@english{\relax}}
