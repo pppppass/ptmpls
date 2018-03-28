@@ -1,7 +1,7 @@
 % !TeX encoding = UTF-8
 % !TeX spellcheck = en_US
 
-%% PKU-style paper class v1.0.1 2017/01/20
+%% PKU-style paper class v1.1.0 2017/03/28
 %
 %% pkupaper.cls
 %
@@ -30,10 +30,11 @@
 
 % Identification
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{pkupaper}[2017/01/20 PKU-style paper class v1.0.1]
+\ProvidesClass{pkupaper}[2017/03/28 PKU-style paper class v1.1.0]
 
 % Declaration of options
 \DeclareOption{english}{\def\pkupaper@english{\relax}}
+\DeclareOption{nochinese}{\def\pkupaper@nochinese{\relax}}
 \ProcessOptions\relax
 
 % Pass options
@@ -43,11 +44,16 @@
 \fi
 
 % Load basic class
-\LoadClass[UTF8, zihao=-4, twoside]{ctexart}
+\ifdefined\pkupaper@nochinese%
+\LoadClass[UTF8, 12pt, twoside]{article}%
+\else%
+\LoadClass[UTF8, cs4size, twoside]{ctexart}%
+\fi
 
 % Load packages
 \RequirePackage{ifpdf, ifxetex}
 \RequirePackage{geometry}
+\RequirePackage{titlesec}
 \RequirePackage[defaultsups]{newtxtext}
 \RequirePackage{newtxmath}
 \RequirePackage{tikz}
@@ -77,9 +83,9 @@
 \linespread{1.39}\selectfont
 
 % Set captions
-\DeclareCaptionFont{cfive}{\zihao{5}}
+\DeclareCaptionFont{small}{\small}
 \DeclareCaptionLabelSeparator{quad}{\quad}
-\captionsetup{font = cfive, labelsep = quad}
+\captionsetup{font=small, labelsep=quad}
 
 % Set enumrate environments
 \setlist{nolistsep}
@@ -105,24 +111,13 @@
 \setlength{\belowdisplayshortskip}{3bp plus 0.75bp minus 1.75bp}
 \setlength{\belowdisplayskip}{6bp plus 1.5bp minus 3.5bp}
 
-% ctex settings
-\ctexset{
-	section = {
-		format = {\zihao {-3}\bfseries },
-		beforeskip = {20bp plus 1ex minus 0.2ex},
-		afterskip = {6bp plus 0.2ex}
-	},
-	subsection = {
-		format = {\zihao {4}\bfseries },
-		beforeskip = {12bp plus 1ex minus 0.2ex},
-		afterskip = {6bp plus 0.2ex}
-	},
-	subsubsection = {
-		format = {\bfseries },
-		beforeskip = {12bp plus 1ex minus 0.2ex},
-		afterskip = {6bp plus 0.2ex}
-	}
-}
+% Set sectioning format
+\titleformat*{\section}{\fontsize{15pt}{15pt}\selectfont\bfseries}
+\titlespacing*{\section}{0pt}{20bp plus 1ex minus 0.2ex}{6bp plus 0.2ex}[0pt]
+\titleformat*{\subsection}{\fontsize{14pt}{14pt}\selectfont\bfseries}
+\titlespacing*{\subsection}{0pt}{12bp plus 1ex minus 0.2ex}{6bp plus 0.2ex}[0pt]
+\titleformat*{\subsubsection}{\fontsize{12pt}{12pt}\selectfont\bfseries}
+\titlespacing*{\subsubsection}{0pt}{12bp plus 1ex minus 0.2ex}{6bp plus 0.2ex}[0pt]
 
 % Headers and footers
 \def\pkupaper@int@setcase#1{%
@@ -130,12 +125,12 @@
 	\expandafter\let\csname MakeUppercase \endcsname\relax%
 	#1%
 }
-\fancypagestyle{plain}{
-	\fancyhf{}\renewcommand*{\headrulewidth}{0.75bp}
-	\fancyfoot[C]{\zihao{5}\normalfont{\thepage}}
-	\fancyhead[CE]{\zihao{5}\normalfont{\cuniversity{} \cthesisname}}
-	\fancyhead[CO]{\zihao{5}\normalfont\pkupaper@int@setcase{\titlemark}}
-}
+\fancypagestyle{plain}{%
+	\fancyhf{}\renewcommand*{\headrulewidth}{0.75bp}%
+	\fancyfoot[C]{\small\normalfont{\thepage}}%
+	\fancyhead[CE]{\small\normalfont{\cuniversity{} \cthesisname}}%
+	\fancyhead[CO]{\small\normalfont\pkupaper@int@setcase{\titlemark}}%
+}%
 \pagestyle{plain}
 
 % Commands

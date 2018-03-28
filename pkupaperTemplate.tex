@@ -2,7 +2,7 @@
 % !TeX program = LuaLaTeX
 % !TeX spellcheck = en_US
 
-%% PKU-style paper template v1.0.1 2018/01/20
+%% PKU-style paper template v1.1.0 2018/03/28
 %
 %% pkupaperTemplate.tex
 %
@@ -32,22 +32,28 @@
 
 \DeclareRobustCommand{\authoring}%
 {%
-	\begin{tabular}{c}%
-		Someone \\%
-		Information%
-	\end{tabular}%
+\begin{tabular}{c}%
+Someone \\%
+Information%
+\end{tabular}%
 }
 
 \title{\titlemark}
 \author{\authoring}
 
-	\begin{document}
+\begin{document}
 
-	\maketitle
+\maketitle
+
+\section{A section}
 
 Here is some content. 这个文档类有基本的中文支持.
 
+\subsection{Lipsum}
+
 \lipsum[1]
+
+\subsection{Table}
 
 \begin{table}[htbp]
 \caption{A table} \label{Tbl:ATable}
@@ -58,6 +64,8 @@ A & B & C \\
 D & E & F
 \end{tabular}
 \end{table}
+
+\section{Enumeration}
 
 \begin{thmdefinition}
 This is a definition. You may refer to Table \ref{Tbl:ATable} and Figure \ref{Fig:BinaryTreeForest}.
@@ -121,9 +129,9 @@ $A \slar b$\;
 {
 	\KwData{None}
 	\KwResult{Dump stack elements from $S_1$ to $S_2$}
-	
+
 	\BlankLine
-	
+
 	\While{not \IsEmpty{$S_1$}}
 	{
 		\Pop{$S_1$, \Ele}\;
@@ -137,9 +145,9 @@ $A \slar b$\;
 {
 	\KwData{None}
 	\KwResult{Dump stack elements from $S_2$ to $S_1$}
-	
+
 	\BlankLine
-	
+
 	\While{not \IsEmpty{$S_2$}}
 	{
 		\Pop{$S_2$, \Ele}\;
@@ -153,9 +161,9 @@ $A \slar b$\;
 {
 	\KwData{Some \Ele}
 	\KwResult{Push \Ele to the back of the queue}
-	
+
 	\BlankLine
-	
+
 	\Push{$S_1$, \Ele}\;
 }
 
@@ -166,4 +174,4 @@ $A \slar b$\;
 
 $ \msbr{ & I \\ \Delta & } $.
 
-	\end{document}
+\end{document}
