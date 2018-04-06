@@ -1,7 +1,7 @@
 % !TeX encoding = UTF-8
 % !TeX spellcheck = en_US
 
-%% Note class v1.0.1 2018/01/20
+%% Note class v1.1.0 2018/04/06
 %
 %% note.cls
 %
@@ -30,7 +30,7 @@
 
 % Identification
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{note}[2018/01/20 Note class v1.0.1]
+\ProvidesClass{note}[2018/04/06 Note class v1.1.0]
 
 % Declaration of options
 \DeclareOption{english}{\def\note@english{\relax}}
@@ -39,18 +39,20 @@
 
 % Pass options
 \ifdefined\note@english%
-\PassOptionsToPackage{scheme=plain}{ctex}%
+\PassOptionsToClass{scheme=plain}{ctexart}%
 \fi
 
 % Load class
-\LoadClass[UTF8]{article}
+\ifdefined\note@nochinese%
+\LoadClass[UTF8, 12pt]{article}%
+\else%
+\LoadClass[UTF8, cs4size]{ctexart}%
+\fi
 
 % Load packages
-\ifdefined\note@nochinese\else%
-\RequirePackage{ctex}%
-\fi
 \RequirePackage{standalone}
 \RequirePackage{geometry}
+\RequirePackage{titlesec}
 \RequirePackage{tocbibind}
 \RequirePackage{amsmath}
 \RequirePackage[backend=biber, url=false, autolang=other]{biblatex}
@@ -61,9 +63,20 @@
 % Page style
 \pagestyle{plain}
 
+% Set linespread
+\linespread{1.2}\selectfont
+
 % Line skips
 \setlength\lineskiplimit{3pt}
 \setlength\lineskip{3pt}
+
+% Set font size
+\titleformat*{\section}{\fontsize{15pt}{15pt}\selectfont\bfseries}
+\titlespacing*{\section}{0pt}{20bp plus 1ex minus 0.2ex}{6bp plus 0.2ex}[0pt]
+\titleformat*{\subsection}{\fontsize{14pt}{14pt}\selectfont\bfseries}
+\titlespacing*{\subsection}{0pt}{12bp plus 1ex minus 0.2ex}{6bp plus 0.2ex}[0pt]
+\titleformat*{\subsubsection}{\fontsize{12pt}{12pt}\selectfont\bfseries}
+\titlespacing*{\subsubsection}{0pt}{12bp plus 1ex minus 0.2ex}{6bp plus 0.2ex}[0pt]
 
 % Equation display
 \allowdisplaybreaks
