@@ -1,7 +1,7 @@
 % !TeX encoding = UTF-8
 % !TeX spellcheck = en_US
 
-%% PKU-style paper class v1.1.0 2017/03/28
+%% PKU-style paper class v1.1.1 2018/05/15
 %
 %% pkupaper.cls
 %
@@ -30,11 +30,12 @@
 
 % Identification
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{pkupaper}[2017/03/28 PKU-style paper class v1.1.0]
+\ProvidesClass{pkupaper}[2018/05/15 PKU-style paper class v1.1.1]
 
 % Declaration of options
 \DeclareOption{english}{\def\pkupaper@english{\relax}}
 \DeclareOption{nochinese}{\def\pkupaper@nochinese{\relax}}
+\DeclareOption{nobib}{\def\pkupaper@nobib{\relax}}
 \ProcessOptions\relax
 
 % Pass options
@@ -65,7 +66,10 @@
 \RequirePackage{titling}
 \RequirePackage{hyperref}
 \RequirePackage{enumitem}
-\RequirePackage[backend=biber]{biblatex}
+\ifdefined\pkupaper@nobib%
+\else%
+\RequirePackage[backend=biber]{biblatex}%
+\fi
 
 % Footnote circles
 \newcommand*\pkupaper@int@circled[1]{%
