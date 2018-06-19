@@ -81,7 +81,7 @@
 }
 \renewcommand\thefootnote%
 	{\protect\pkupaper@int@circled{\arabic{footnote}}}
-\deffootnote{2\ccwd}{3.5\ccwd}{\thefootnotemark\hspace{0.75\ccwd}}
+\deffootnote{2em}{3.5em}{\thefootnotemark\hspace{0.75em}}
 
 % Set linespread
 \linespread{1.39}\selectfont
