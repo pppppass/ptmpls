@@ -68,7 +68,7 @@
 \RequirePackage{enumitem}
 \ifdefined\pkupaper@nobib%
 \else%
-\RequirePackage[backend=biber]{biblatex}%
+\RequirePackage[backend=biber, sorting=nty, url=false]{biblatex}%
 \fi
 
 % Footnote circles
