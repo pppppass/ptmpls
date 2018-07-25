@@ -4,6 +4,8 @@ This is a repository about TeX Templates made by pppppass, including a
 personal macro package, a PKU-style paper class, a PKU-style slide
 class and a note class.
 
+The documentation is under construction on the `doc` branch. It is planned that this package will be merged into a single `textmpls.dtx` file.
+
 ## License
 
 This repository contains four works under LPPL, further information
