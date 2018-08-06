@@ -1,16 +1,32 @@
-*.aux
-*.log
-*.out
-*.pdf
-*.synctex.gz
-*.thm
+# Temporary files
+Temporary/
 *~
+
+# Generated fils
+*.aux
 *.bak
 *.bbl
 *.bcf
 *.blg
+*.glo
+*.gls
+*.hd
+*.idx
+*.ilg
+*.ind
+*.log
 *.nav
-*.xml
+*.out
+*.pdf
 *.snm
-*.toc
+*.synctex.gz
 *.synctex(busy)
+*.thm
+*.toc
+*.xml
+*.zip
+
+# Extracted files
+*.sty
+*.cls
+*.ins

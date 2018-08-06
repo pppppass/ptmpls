@@ -1,0 +1,738 @@
+% \iffalse meta-comment
+% !TeX encoding = UTF-8
+% !TeX program = LuaLaTeX
+% Note that pdfLaTeX, XeLaTeX should also work here. When encountering
+% difficulties, try changing your LaTeX program. However, TeX generally will
+% fail here.
+% This file should be named ptmpls.dtx strictly.
+%<*internal>
+\iffalse
+%</internal>
+%<*readme>
+# ptmpls - pppppass' TeX Templates
+
+This repository ptmpls is a macro set about \TeX{} or \LaTeX{} templates made by
+  [pppppass](mailto:lzh2016p@pku.edu.cn).
+Held on
+  [GitHub](https://github.com/pppppass/ptmpls),
+this repository consists of
+1. Personal macro package `pdef.sty`,
+2. Note class `pnote.cls`,
+3. PKU-style paper class `pkupaper.cls`,
+4. PKU-style slide class `pkuslide.cls`.
+
+It should be mentioned that the documentation is under construction on the
+`doc` branch. It is planned that the macro set will be merged into a single
+`ptmpls.dtx` file. Thus, there will be two readme files in the folder at the
+same time, one of which is the original one to clarify licenses, and another
+is generated from `ptmpls.dtx` and overwrites the original one when
+extracting.
+
+To extract the package, simply use the command `lualatex ptmpls.dtx`. For
+detailed usages, please refer to the package documentation `ptmpls.pdf`,
+together with the preamble and postamble in each file.
+%</readme>
+%<*internal>
+\fi
+%</internal>
+%<*install>
+%% ptmpls.ins - Installation Batchfile
+
+\begingroup
+\input docstrip.tex
+\askforoverwritefalse
+\preamble
+ptmpls - pppppass' TeX Templates
+
+Copyright (C) 2017-2018 by pppppass <lzh2016p@pku.edu.cn>
+
+This macro set is held on
+  http://www.github.com/pppppass/ptmpls
+and released under the LaTeX Project Public License v1.3c or later, see
+  http://www.latex-project.org/lppl.txt
+and the postamble.
+
+\endpreamble
+\postamble
+This work may be distributed and/or modified under the
+conditions of the LaTeX Project Public License, either version 1.3
+of this license or (at your option) any later version.
+The latest version of this license is in
+  http://www.latex-project.org/lppl.txt,
+and version 1.3 or later is part of all distributions of LaTeX
+version 2005/12/01 or later.
+
+This work has the LPPL maintenance status "maintained".
+
+The Current Maintainer of this work is pppppass <lzh2016p@pku.edu.cn>.
+
+This work consists of the file
+  ptmpls.dtx,
+and the derived files
+  ptmpls.pdf,
+  ptmpls.ins,
+  pdef.sty,
+  pnote.sty,
+while
+  Readme.md
+and other files not specified belong to the public domain.
+\endpostamble
+\usedir{tex/latex/ptmpls}
+\generate{
+  \file{pdef.sty}{\from{ptmpls.dtx}{pdef}}
+}
+\usedir{tex/latex/ptmpls}
+\generate{
+  \file{pnote.cls}{\from{ptmpls.dtx}{pnote}}
+}
+%</install>
+%<install>\endbatchfile
+%<*internal>
+\usedir{source/latex/ptmpls}
+\generate{
+  \file{ptmpls.ins}{\from{ptmpls.dtx}{install}}
+}
+\nopreamble\nopostamble
+\usedir{doc/latex/ptmpls}
+\generate{
+  \file{Readme.md}{\from{ptmpls.dtx}{readme}}
+}
+\endgroup
+%</internal>
+%<*internal>
+\iffalse
+%</internal>
+%<*pdef>
+%% pdef.sty - Personal macro package
+
+%</pdef>
+%<*pnote>
+%% pnote.cls - Note class
+
+%</pnote>
+%<*internal>
+\fi
+%</internal>
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage{pdef}
+\usepackage[numbered]{hypdoc}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{ptmpls.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \GetFileInfo{pdef.sty}
+%
+% \title{\textsf{ptmpls} --- pppppass' Personal \TeX{} Templates}
+%
+% \author{^^A
+%   pppppass^^A
+%   \thanks{E-mail: \href{mailto:lzh2016p@pku.edu.cn}{\texttt{lzh2016p@pku.edu.cn}}}^^A
+% }
+%
+%^^A <DATE>
+% \date{
+%   \begin{tabular}{c}
+%     August 6, 2018 \\
+%     Version: \filedate, \fileversion
+%   \end{tabular}
+% }
+%
+% \maketitle
+%
+% \changes{v1.2.0}{2018/08/06}{
+%   Merge files into \texttt{ptmpls.dtx}, and strip out unnecessary commands
+%   according to KISS.
+% }
+%
+% \changes{v1.1.1}{2018/06/19}{
+%   Update bibliography sorting and footnotes in \texttt{pkupaper.cls}
+% }
+% \changes{v1.1.0}{2018/05/16}{
+%   Update \texttt{nochinese} option in \texttt{pkupaper.cls} and reformat
+%   font sizes.
+% }
+%
+% \changes{v1.0.4}{2018/04/30}{
+%   Hot fix for \TeX{} Live 2017.
+% }
+% \changes{v1.0.3}{2018/04/17}{
+%   Introduce some symbols.
+% }
+% \changes{v1.0.2}{2018/03/22}{
+%   Fix \texttt{quoteslide} environment and reformat templates.
+% }
+% \changes{v1.0.1}{2018/01/20}{
+%   Update version header.
+% }
+% \changes{v1.0.0}{2018/10/25}{
+%   First public release.
+% }
+%
+% \tableofcontents
+%
+% \section{Introduction}
+%
+% This repository \textsf{ptmpls} is a macro set about TeX / LaTeX templates
+% made by
+%   \href{mailto:lzh2016p@pku.edu.cn}{pppppass}.
+% Held on
+%   \href{https://github.com/pppppass/ptmpls}{GitHub},
+% this repository consists of
+% \begin{enumerate}
+% \item Personal macro package \verb"pdef.sty";
+% \item Note class \verb"pnote.cls";
+% \item PKU-style paper class \verb"pkupaper.cls";
+% \item PKU-style slide class \verb"pkuslide.cls".
+% \end{enumerate}
+%
+% This repository is a derived work from some packages under LPPL (LaTeX
+% Project Public License). To be exact, this repository contains codes derived
+% from
+%   \href{https://ctan.org/pkg/yhmath}{\textsf{yhmath}}
+% and
+%   \href{https://ctan.org/pkg/cbgreek-complete}{\textsf{cbgreek}}.
+% See comments on source codes and the preamble and postamble part of extracted
+% files for details.
+%
+% \section{Usage}
+%
+% There is simple one main file for this repository: \verb"ptmpls.dtx". To
+% extract the packages and classes, one needs to \LaTeX{} it by
+%\begin{verbatim}
+%lualatex ptmpls.dtx
+%\end{verbatim}
+% or say running LuaLaTeX through this file. As described in this file itself,
+% pdfLaTeX
+% or XeLaTeX may also work, but \TeX{} programs are likely to fail. \emph{Note
+% that files to be extracted, like} \verb"pdef.sty" \emph{will be overwritten!}
+%
+% It is suggested to download only \verb"ptmpls.dtx" and extract the files on
+% one's own. However, a packed version of extracted files is also provided.
+% <LINK>
+%
+% To compile the documentation, the simple commmand
+%\begin{verbatim}
+%lualatex ptmpls.dtx
+%\end{verbatim}
+% is sufficient. However, if one wants to build the index, another execution of
+%\begin{verbatim}
+%makeindex -s gind.ist ptmpls.idx
+%makeindex -s gglo.ist -o ptmpls.gls ptmpls.glo
+%\end{verbatim}
+% in required. One may also use
+%\begin{verbatim}
+%make
+%\end{verbatim}
+% or
+%\begin{verbatim}
+%make all
+%\end{verbatim}
+% to automatically extract and compile all the things.
+%
+% To use the package for daily work, one may directly place the
+% \verb"ptmpls.dtx" into the
+% working folder and and extract everything. And then macros like
+%\begin{verbatim}
+%\usepackage{pdef}
+%\end{verbatim}
+% or
+%\begin{verbatim}
+%\documentclass{pnote}
+%\end{verbatim}
+% should then work smoothly. Options may be added according to the description
+% below. One may also download the packed version and unzip the
+% contents. For Git users, it is also possible to clone the repository from
+% GitHub or create submodules to keep up-to-date, by
+%\begin{verbatim}
+%git clone git@github.com:pppppass/ptmpls
+%\end{verbatim}
+% or
+%\begin{verbatim}
+%git submodule init git@github.com:ppppass/ptmpls
+%\end{verbatim}
+% If one finds having copies of the same repository disturbing, it is possible
+% to use symbolic links to link necessary files and get around license issues.
+% A submodule for a repository composed by several separate \LaTeX{} articles
+% exemplifies this situation: linking merely \verb"pdef.sty" and
+% \verb"pnote.sty" to each folder is sufficient for \LaTeX ing. Additionally,
+% \verb"mktexlsr" can also be used, but it is not fully tested. Hopefully, it
+% will install the macro set into \verb"tex/latex/ptmpls" and some other
+% similar directories.
+%
+% \section{Personal macro package \texttt{pdef.sty}}
+%
+% Guard.
+%    \begin{macrocode}
+%<*pdef>
+%    \end{macrocode}
+%
+%^^A <DATE><VER>
+% Provide the package itself.
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{pdef}[2018/08/06 v1.2.0 Personal macro package]
+%    \end{macrocode}
+%
+% Decalre macros.
+%    \begin{macrocode}
+\def\pdef@opt@dec#1{
+  \DeclareOption{#1}{
+      \expandafter\def\csname pdef@opt@name@#1\endcsname{\relax}
+  }
+  \expandafter\def\csname ifpdef@opt@#1\endcsname{
+      \expandafter\ifcsname pdef@opt@name@#1\endcsname
+  }
+}
+
+\pdef@opt@dec{yhaccent}
+\pdef@opt@dec{cmrgreekup}
+\pdef@opt@dec{safebm}
+\pdef@opt@dec{nosidefault}
+\pdef@opt@dec{nolstdefault}
+\pdef@opt@dec{nomacro}
+\pdef@opt@dec{paper}
+
+\ProcessOptions\relax
+
+%    \end{macrocode}
+%
+% Require basic packages.
+%    \begin{macrocode}
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{amsxtra}
+\RequirePackage{mathtools}
+
+%    \end{macrocode}
+%
+% Set matrix column capacity.
+%    \begin{macrocode}
+\setcounter{MaxMatrixCols}{30}
+
+%    \end{macrocode}
+%
+% \DescribeMacro{yhaccent}
+% \DescribeMacro{\widetilde}
+% \DescribeMacro{\widehat}
+% \DescribeMacro{\widetriangle}
+% \DescribeMacro{\wideparen}
+% Provide wide mathematical accents from \textsf{yhmath} package. This snippet
+% is directly modified from \textsf{yhmath.sty}, as part of a derived work.
+%    \begin{macrocode}
+\ifpdef@opt@yhaccent
+  \DeclareSymbolFont{largesymbolsyhmath}{OMX}{yhex}{m}{n}
+  \DeclareMathAccent{\widetilde}{\mathord}{largesymbolsyhmath}{"65}
+  \DeclareMathAccent{\widehat}{\mathord}{largesymbolsyhmath}{"62}
+  \DeclareMathAccent{\widetriangle}{\mathord}{largesymbolsyhmath}{"E6}
+  \DeclareMathAccent{\wideparen}{\mathord}{largesymbolsyhmath}{"F3}
+\fi
+
+%    \end{macrocode}
+%
+% \DescribeMacro{cmrgreekup}
+% \DescribeMacro{\*GREEKCHAR*up}
+% Introduce upright Greek letters from CB Greek fonts as from \textsf{cbgreek}
+% package. This snippet is modifed from \verb"cbgreek.sty" as part of a derived
+% work. Refer to documentation of the package for visual effects. It seems that
+% this font suits better with Computer Modern family, while Adobe Symbol from
+% package \textsf{upgreek} (probably with option \verb"Symbolsmallscale") looks
+% better with Time New Roman family. The new macros are named \verb"\<greek>up"
+% here instead of \verb"\up<greek>" in \textsf{upgreek} to avoid conflicts.
+%    \begin{macrocode}
+\ifpdef@opt@cmrgreekup
+  \RequirePackage[LGR,T1]{fontenc}
+  \DeclareSymbolFont{greekupcbgreek}{LGR}{cmr}{m}{n}
+  \SetSymbolFont{greekupcbgreek}{bold}{LGR}{cmr}{m}{n}
+  \DeclareMathSymbol{\alphaup}{\mathord}{greekupcbgreek}{97}
+  \DeclareMathSymbol{\betaup}{\mathord}{greekupcbgreek}{98}
+  \DeclareMathSymbol{\gammaup}{\mathord}{greekupcbgreek}{103}
+  \DeclareMathSymbol{\deltaup}{\mathord}{greekupcbgreek}{100}
+  \DeclareMathSymbol{\epsilonup}{\mathord}{greekupcbgreek}{101}
+  \DeclareMathSymbol{\zetaup}{\mathord}{greekupcbgreek}{122}
+  \DeclareMathSymbol{\etaup}{\mathord}{greekupcbgreek}{104}
+  \DeclareMathSymbol{\thetaup}{\mathord}{greekupcbgreek}{106}
+  \DeclareMathSymbol{\iotaup}{\mathord}{greekupcbgreek}{105}
+  \DeclareMathSymbol{\kappaup}{\mathord}{greekupcbgreek}{107}
+  \DeclareMathSymbol{\lambdaup}{\mathord}{greekupcbgreek}{108}
+  \DeclareMathSymbol{\muup}{\mathord}{greekupcbgreek}{109}
+  \DeclareMathSymbol{\nuup}{\mathord}{greekupcbgreek}{110}
+  \DeclareMathSymbol{\xiup}{\mathord}{greekupcbgreek}{120}
+  \DeclareMathSymbol{\piup}{\mathord}{greekupcbgreek}{112}
+  \DeclareMathSymbol{\rhoup}{\mathord}{greekupcbgreek}{114}
+  \DeclareMathSymbol{\sigmaup}{\mathord}{greekupcbgreek}{115}
+  \DeclareMathSymbol{\tauup}{\mathord}{greekupcbgreek}{116}
+  \DeclareMathSymbol{\upsilonup}{\mathord}{greekupcbgreek}{117}
+  \DeclareMathSymbol{\phiup}{\mathord}{greekupcbgreek}{102}
+  \DeclareMathSymbol{\chiup}{\mathord}{greekupcbgreek}{113}
+  \DeclareMathSymbol{\psiup}{\mathord}{greekupcbgreek}{121}
+  \DeclareMathSymbol{\omegaup}{\mathord}{greekupcbgreek}{119}
+\fi
+
+%    \end{macrocode}
+%
+% \DescribeMacro{safebm}
+% Set \verb"\hmmax" and \verb"\bmmax" to reduce the number of symbol fonts
+% used, while paying some efficiency in turn. If this option is invoked,
+% remember to postpone this package until all packages about symbols and fonts
+% have been loaded.
+%    \begin{macrocode}
+\ifpdef@opt@safebm
+  \newcommand{\hmmax}{0}
+  \newcommand{\bmmax}{0}
+  \RequirePackage{bm}
+\fi
+
+%    \end{macrocode}
+%
+% \DescribeMacro{nosidefault}
+% Set up defaults for \textsf{siunitx} package.
+%    \begin{macrocode}
+\ifpdef@opt@nosidefault\else
+  \ifdefined\Si
+    \let\Si\si
+    \let\si\relax
+    \sisetup{
+      input-symbols = \pi\spi\dots\cdots,
+      binary-units = true,
+    }
+  \fi
+\fi
+
+%    \end{macrocode}
+%
+% Set up defaults for \textsf{listings} package.
+% \DescribeMacro{nolstdefault}
+%    \begin{macrocode}
+\ifpdef@opt@nolstdefault\else
+  \ifdefined\lstset
+    \lstset{
+      basicstyle=\ttfamily,
+      keywordstype=\ttfamily\color{blue!75!black},
+      stringstyle=\ttfamily\color{red!75!black},
+      flexiblecolumns
+    }
+  \fi
+\fi
+
+%    \end{macrocode}
+%
+% \DescribeMacro{nomacro}
+% \DescribeMacro{\rbr}
+% \DescribeMacro{\sbr}
+% \DescribeMacro{\cbr}
+% \DescribeMacro{\pbr}
+% \DescribeMacro{\fbr}
+% \DescribeMacro{\gbr}
+% Define shorthands for paired brackets. The option \verb"nomacro" is used to forbid
+% such definitions.
+%    \begin{macrocode}
+\ifpdef@opt@nomacro\else
+  \newcommand{\rbr}[1]{\left( #1 \right)}
+  \newcommand{\sbr}[1]{\left[ #1 \right]}
+  \newcommand{\cbr}[1]{\left\{ #1 \right\}}
+  \newcommand{\pbr}[1]{\left< #1 \right>}
+  \newcommand{\fbr}[1]{\left\lfloor #1 \right\rfloor}
+  \newcommand{\gbr}[1]{\left\lceil #1 \right\rceil}
+
+%    \end{macrocode}
+%
+% \DescribeMacro{\abs}
+% \DescribeMacro{\norm}
+% Define shorthands for norm-like brackets.
+%    \begin{macrocode}
+  \newcommand{\abs}[1]{\left| #1 \right|}
+  \newcommand{\norm}[1]{\left\| #1 \right\|}
+
+%    \end{macrocode}
+%
+% \DescribeMacro{\mvert}
+% \DescribeMacro{\mnorm}
+% Define shorthands for middle delimiters.
+%    \begin{macrocode}
+  \newcommand{\mvert}{\middle\vert}
+  \newcommand{\mnorm}{\middle\|}
+
+%    \end{macrocode}
+%
+% \DescribeMacro{\rsbr}
+% \DescribeMacro{\srbr}
+% \DescribeMacro{\siobr}
+% \DescribeMacro{\soibr}
+% \DescribeMacro{\soobr}
+% Define brackets for intervals.
+%    \begin{macrocode}
+  \newcommand{\rsbr}[1]{\left( #1 \right]}
+  \newcommand{\srbr}[1]{\left[ #1 \right)}
+  \newcommand{\siobr}[1]{\left[ #1 \right[}
+  \newcommand{\soibr}[1]{\left] #1 \right]}
+  \newcommand{\soobr}[1]{\left] #1 \right[}
+
+%    \end{macrocode}
+%
+% \DescribeMacro{\bra}
+% \DescribeMacro{\ket}
+% \DescribeMacro{\braket}
+% \DescribeMacro{\bramidket}
+% Define shorthands for brackets in physics.
+%    \begin{macrocode}
+  \newcommand{\bra}[1]{\left< #1 \right\vert}
+  \newcommand{\ket}[1]{\left\vert #1 \right>}
+  \newcommand{\braket}[2]{\left< #1 \middle\vert #2 \right>}
+  \newcommand{\bramidket}[3]{\left< #1 \middle\vert #2 \middle\vert #3 \right>}
+
+%    \end{macrocode}
+%
+% \DescribeMacro{\bfrac}
+% \DescribeMacro{\nvbr}
+% Define shorthands for miscellaneous brackets.
+%    \begin{macrocode}
+  \newcommand{\bfrac}[2]{\left. #1 \middle/ #2 \right.}
+  \newcommand{\nvbr}[1]{\left. #1 \right\rvert}
+
+%    \end{macrocode}
+%
+% \DescribeMacro{\narr}
+% \DescribeMacro{\sarr}
+% Define shorthands for array environments.
+%    \begin{macrocode}
+  \newcommand{\narr}[2]{{\begin{array}{#1} #2 \end{array}}}
+  \newcommand{\sarr}[2]{{\begin{subarray}{#1} #2 \end{subarray}}}
+
+%    \end{macrocode}
+%
+% \DescribeMacro{\sd}
+% \DescribeMacro{\pd}
+% \DescribeMacro{\ud}
+% Define shorthands for differential operators.
+%    \begin{macrocode}
+  \newcommand{\sd}[1][]{\mathop{\mathrm{d}^{#1} \!}}
+  \newcommand{\pd}[1][]{\mathop{\partial^{#1} \!}}
+  \newcommand{\ud}[1][]{\mathop{\mathrm{D}^{#1} \!}}
+
+%    \end{macrocode}
+%
+% \DescribeMacro{\se}
+% \DescribeMacro{\si}
+% \DescribeMacro{\sj}
+% \DescribeMacro{\sk}
+% \DescribeMacro{\spi}
+% Define shorthands for special characters for mathematical constants.
+%    \begin{macrocode}
+  \newcommand{\se}{\mathrm{e}}
+  \newcommand{\si}{\mathrm{i}}
+  \newcommand{\sj}{\mathrm{j}}
+  \newcommand{\sk}{\mathrm{k}}
+  \ifdefined\piup
+    \newcommand{\spi}{\piup}
+  \else
+    \ifdefined\uppi
+      \newcommand{\spi}{\uppi}
+    \else
+      \newcommand{\spi}{\spi}
+    \fi
+  \fi
+
+%    \end{macrocode}
+%
+% \DescribeMacro{\ptrel}
+% \DescribeMacro{\ptbin}
+% \DescribeMacro{\ptop}
+% Define shorthands for phantoms. This is useful to typeset aligned
+% multi-line equations, where the first equality is left out for indentation.
+%    \begin{macrocode}
+  \newcommand{\ptrel}[1]{\mathrel{\phantom{#1}}}
+  \newcommand{\ptbin}[1]{\mathbin{\phantom{#1}}}
+  \newcommand{\ptop}[1]{\mathop{\phantom{#1}}}
+\fi
+
+%    \end{macrocode}
+%
+% \DescribeMacro{nopaper}
+% Introduce \textsf{ntheorem} and \textsf{enumitem} package which are common
+% for papers. Pass \verb"nopaper" option to suppress.
+%    \begin{macrocode}
+\ifpdef@opt@paper
+  \RequirePackage{ntheorem}
+  \RequirePackage{enumitem}
+
+%    \end{macrocode}
+%
+% \DescribeEnv{partlist}
+% \DescribeEnv{partpartlist}
+% \DescribeEnv{partpartpartlist}
+% Define environments for indented lists.
+%    \begin{macrocode}
+  \newenvironment{partlist}[1][]
+    {\begin{enumerate}[
+      itemsep=0pt, label=(\arabic*), wide,
+      labelindent=\parindent, listparindent=\parindent, #1^^A
+    ]}
+    {\end{enumerate}}
+  \newenvironment{partpartlist}[1][]
+    {\begin{enumerate}[
+      itemsep=0pt, label=(\roman*), wide,
+      labelindent=\parindent, listparindent=\parindent, #1^^A
+    ]}
+    {\end{enumerate}}
+  \newenvironment{partpartpartlist}[1][]
+    {\begin{enumerate}[
+      itemsep=0pt, label=\alph*., wide,
+      labelindent=\parindent, listparindent=\parindent, #1^^A
+    ]}
+    {\end{enumerate}}
+
+%    \end{macrocode}
+%
+% Define theorem styles without numbering as extensions of \textsf{theorem}.
+% See \textsf{ntheorem} for details.
+%    \begin{macrocode}
+  \newtheoremstyle{nonameplain}
+  {\item[^^A
+    \theorem@headerfont^^A
+    \hskip\labelsep{##2}^^A
+    \theorem@separator^^A
+  ]}
+  {\item[^^A
+    \theorem@headerfont^^A
+    \hskip \labelsep{##2}\ (##3)^^A
+    \theorem@separator^^A
+  ]}
+  \newtheoremstyle{nonameindent}
+  {\item[^^A
+    \theorem@headerfont^^A
+    \hskip\labelsep\hspace{\parindent}##2^^A
+    \theorem@separator^^A
+  ]}
+  {\item[^^A
+    \theorem@headerfont^^A
+    \hskip \labelsep\hspace{\parindent}##2\ (##3)^^A
+    \theorem@separator^^A
+  ]}
+  \newtheoremstyle{nonumberindent}
+	{\item[^^A
+    \theorem@headerfont^^A
+    \hskip\labelsep\hspace{\parindent}##1^^A
+    \theorem@separator^^A
+  ]}
+  {\item[^^A
+    \theorem@headerfont^^A
+    \hskip \labelsep\hspace{\parindent}##1\ (##3)^^A
+    \theorem@separator^^A
+  ]}
+\fi
+
+%    \end{macrocode}
+%
+% Guard.
+%    \begin{macrocode}
+%</pdef>
+%    \end{macrocode}
+%
+% \section{Note class \texttt{pnote.cls}}
+%
+% Guard.
+%    \begin{macrocode}
+%<*pnote>
+%    \end{macrocode}
+%
+%^^A <DATE><VER>
+% Provide the document class itself.
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{pnote}[2018/08/06 v1.2.0 Note class]
+
+%    \end{macrocode}
+%
+% Declare options.
+%    \begin{macrocode}
+\def\pnote@opt@dec#1{
+  \DeclareOption{#1}{
+      \expandafter\def\csname pnote@opt@name@#1\endcsname{\relax}
+  }
+  \expandafter\def\csname ifpnote@opt@#1\endcsname{
+      \expandafter\ifcsname pnote@opt@name@#1\endcsname
+  }
+}
+
+\pnote@opt@dec{english}
+\pnote@opt@dec{nochinese}
+
+\ProcessOptions\relax
+
+%    \end{macrocode}
+%
+% \DescribeMacro{english}
+% \DescribeMacro{nochinese}
+% Load classes and pass options. By default Chinese typesetting environment
+% is used. Use \verb"english" to change such localization, or use
+% \verb"nochinese" to suppress the package \textsf{ctex}.
+%    \begin{macrocode}
+\ifpnote@opt@english
+  \PassOptionsToClass{scheme=plain}{ctexart}
+\fi
+
+\ifpnote@opt@nochinese
+  \LoadClass[UTF8, 12pt]{article}
+\else
+  \LoadClass[UTF8, zihao=-4]{ctexart}
+\fi
+
+%    \end{macrocode}
+%
+% Load packages.
+%    \begin{macrocode}
+\RequirePackage{amsmath}
+\RequirePackage{geometry}
+\RequirePackage{tocbibind}
+
+%    \end{macrocode}
+%
+% Set page layout.
+%    \begin{macrocode}
+\geometry{a4paper, top=1in, bottom=1in, left=1.25in, right=1.25in}
+
+%    \end{macrocode}
+%
+% Set page style.
+%    \begin{macrocode}
+\pagestyle{plain}
+
+%    \end{macrocode}
+%
+% Set default linespread.
+%    \begin{macrocode}
+\linespread{1.2}\selectfont
+
+%    \end{macrocode}
+%
+% Set line skips.
+%    \begin{macrocode}
+\setlength\lineskiplimit{3pt}
+\setlength\lineskip{3pt}
+
+%    \end{macrocode}
+%
+% Allow breaking-page equations.
+%    \begin{macrocode}
+\allowdisplaybreaks
+
+%    \end{macrocode}
+%
+% Guard.
+%    \begin{macrocode}
+%</pnote>
+%    \end{macrocode}
+%
+% \StopEventually{^^A
+%   \PrintChanges
+%   \PrintIndex
+% }
+%
+% \Finale
