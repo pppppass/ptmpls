@@ -1,6 +1,6 @@
 # ptmpls - pppppass' TeX Templates
 
-This repository ptmpls is a macro set about \TeX{} or \LaTeX{} templates made by
+This repository ptmpls is a macro set about TeX or LaTeX templates made by
   [pppppass](mailto:lzh2016p@pku.edu.cn).
 Held on
   [GitHub](https://github.com/pppppass/ptmpls),
