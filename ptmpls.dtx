@@ -138,7 +138,7 @@ and other files not specified belong to the public domain.
 %^^A <DATE>
 % \date{
 %   \begin{tabular}{c}
-%     August 6, 2018 \\
+%     August 23, 2018 \\
 %     Version: \filedate, \fileversion
 %   \end{tabular}
 % }
@@ -278,7 +278,7 @@ and other files not specified belong to the public domain.
 % Provide the package itself.
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{pdef}[2018/08/06 v1.2.0 Personal macro package]
+\ProvidesPackage{pdef}[2018/08/23 v1.2.1 Personal macro package]
 %    \end{macrocode}
 %
 % Decalre macros.
@@ -478,6 +478,28 @@ and other files not specified belong to the public domain.
 
 %    \end{macrocode}
 %
+% \changes{v1.2.1}{2018/08/23}{
+%   Reintroduce matrix brackets.
+% }
+% \DescribeMacro{\mnbr}
+% \DescribeMacro{\mrbr}
+% \DescribeMacro{\msbr}
+% \DescribeMacro{\mcbr}
+% \DescribeMacro{\mabr}
+% \DescribeMacro{\mmbr}
+% \DescribeMacro{\mpbr}
+% Define brackets for matrices.
+%    \begin{macrocode}
+\newcommand{\mnbr}[1]{{\begin{matrix} #1 \end{matrix}}}
+\newcommand{\mrbr}[1]{{\begin{pmatrix} #1 \end{pmatrix}}}
+\newcommand{\msbr}[1]{{\begin{bmatrix} #1 \end{bmatrix}}}
+\newcommand{\mcbr}[1]{{\begin{Bmatrix} #1 \end{Bmatrix}}}
+\newcommand{\mabr}[1]{{\begin{vmatrix} #1 \end{vmatrix}}}
+\newcommand{\mmbr}[1]{{\begin{Vmatrix} #1 \end{Vmatrix}}}
+\newcommand{\mpbr}[1]{{\left<\begin{matrix} #1 \end{matrix}\right>}}
+
+%    \end{macrocode}
+%
 % \DescribeMacro{\bra}
 % \DescribeMacro{\ket}
 % \DescribeMacro{\braket}
@@ -648,7 +670,7 @@ and other files not specified belong to the public domain.
 % Provide the document class itself.
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{pnote}[2018/08/06 v1.2.0 Note class]
+\ProvidesClass{pnote}[2018/08/23 v1.2.1 Note class]
 
 %    \end{macrocode}
 %
