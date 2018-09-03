@@ -138,7 +138,7 @@ and other files not specified belong to the public domain.
 %^^A <DATE>
 % \date{
 %   \begin{tabular}{c}
-%     September 2, 2018 \\
+%     September 3, 2018 \\
 %     Version: \filedate, \fileversion
 %   \end{tabular}
 % }
@@ -278,7 +278,7 @@ and other files not specified belong to the public domain.
 % Provide the package itself.
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{pdef}[2018/09/02 v1.2.1 Personal macro package]
+\ProvidesPackage{pdef}[2018/09/03 v1.2.1 Personal macro package]
 %    \end{macrocode}
 %
 % Decalre macros.
@@ -414,11 +414,11 @@ and other files not specified belong to the public domain.
 %    \begin{macrocode}
 \ifpdef@opt@nolstdefault\else
   \ifdefined\lstset
-    \lstset{
-      basicstyle=\ttfamily,
-      keywordstype=\ttfamily\color{blue!75!black},
-      stringstyle=\ttfamily\color{red!75!black},
-      flexiblecolumns
+    \lstset{%
+      basicstyle=\ttfamily,%
+      keywordstyle=\ttfamily\color{blue!75!black},%
+      stringstyle=\ttfamily\color{red!75!black},%
+      flexiblecolumns%
     }
   \fi
 \fi
@@ -670,7 +670,7 @@ and other files not specified belong to the public domain.
 % Provide the document class itself.
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{pnote}[2018/09/02 v1.2.1 Note class]
+\ProvidesClass{pnote}[2018/09/03 v1.2.1 Note class]
 
 %    \end{macrocode}
 %
