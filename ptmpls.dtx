@@ -145,6 +145,9 @@ and other files not specified belong to the public domain.
 %
 % \maketitle
 %
+% \changes{v1.2.1}{2018/09/13}{
+%   Fix miscellaneous typos.
+% }
 % \changes{v1.2.0}{2018/08/06}{
 %   Merge files into \texttt{ptmpls.dtx}, and strip out unnecessary commands
 %   according to KISS.
@@ -533,11 +536,16 @@ and other files not specified belong to the public domain.
 %
 % \DescribeMacro{\sd}
 % \DescribeMacro{\pd}
+% \changes{v1.2.1}{2018/09/19}{
+%   Introduce differential operators with subscript.
+% }
+% \DescribeMacro{\pdl}
 % \DescribeMacro{\ud}
 % Define shorthands for differential operators.
 %    \begin{macrocode}
   \newcommand{\sd}[1][]{\mathop{\mathrm{d}^{#1} \!}}
   \newcommand{\pd}[1][]{\mathop{\partial^{#1} \!}}
+  \newcommand{\pdl}[2][]{\mathop{\partial_{#2}^{#1} \!}}
   \newcommand{\ud}[1][]{\mathop{\mathrm{D}^{#1} \!}}
 
 %    \end{macrocode}
