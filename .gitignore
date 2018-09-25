@@ -1,8 +1,6 @@
 # Temporary files
 Temporary/
 *~
-
-# Generated fils
 *.aux
 *.bak
 *.bbl
@@ -17,16 +15,20 @@ Temporary/
 *.log
 *.nav
 *.out
-*.pdf
 *.snm
 *.synctex.gz
 *.synctex(busy)
 *.thm
 *.toc
 *.xml
-*.zip
 
-# Extracted files
+# Generated files
 *.sty
 *.cls
 *.ins
+*.zip
+
+# External files
+
+# Binary files
+*.pdf
