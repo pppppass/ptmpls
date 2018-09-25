@@ -9,6 +9,7 @@ all: ptmpls.pdf
 
 ptmpls.pdf: $(REALOBJS) $(INDEXOBJS)
 	lualatex ptmpls.dtx
+	lualatex ptmpls.dtx
 
 ptmpls.ind: | ptmpls.idx
 	makeindex -s gind.ist ptmpls.idx
