@@ -286,17 +286,31 @@ and other files not specified belong to the public domain.
 %
 % Decalre macros.
 %    \begin{macrocode}
+\def\pdef@temp@empty{
+  \let\pdef@temp@var=\undefined
+}
+\def\pdef@temp@fill{
+  \def\pdef@temp@var{\relax}
+}
+\def\ifpdef@temp{
+  \ifcsname pdef@temp@var\endcsname
+}
 \def\pdef@opt@dec#1{
   \DeclareOption{#1}{
-      \expandafter\def\csname pdef@opt@name@#1\endcsname{\relax}
+    \expandafter\def\csname pdef@opt@name@#1\endcsname{\relax}
   }
   \expandafter\def\csname ifpdef@opt@#1\endcsname{
-      \expandafter\ifcsname pdef@opt@name@#1\endcsname
+    \ifcsname pdef@opt@name@#1\endcsname
+  }
+  \expandafter\def\csname pdef@test@#1\endcsname{
+    \ifcsname pdef@opt@name@#1\endcsname\pdef@temp@fill\fi
   }
 }
 
 \pdef@opt@dec{yhaccent}
+\pdef@opt@dec{cgu}
 \pdef@opt@dec{cmrgreekup}
+\pdef@opt@dec{cgunfss}
 \pdef@opt@dec{safebm}
 \pdef@opt@dec{nosidefault}
 \pdef@opt@dec{nolstdefault}
@@ -341,6 +355,10 @@ and other files not specified belong to the public domain.
 
 %    \end{macrocode}
 %
+% \changes{v1.2.1}{2018/10/04}{
+  %   Add synonym option \texttt{cgu}.
+  % }
+% \DescribeMacro{cgu}
 % \DescribeMacro{cmrgreekup}
 % \DescribeMacro{\*GREEKCHAR*up}
 % Introduce upright Greek letters from CB Greek fonts as from \textsf{cbgreek}
@@ -349,9 +367,13 @@ and other files not specified belong to the public domain.
 % this font suits better with Computer Modern family, while Adobe Symbol from
 % package \textsf{upgreek} (probably with option \verb"Symbolsmallscale") looks
 % better with Time New Roman family. The new macros are named \verb"\<greek>up"
-% here instead of \verb"\up<greek>" in \textsf{upgreek} to avoid conflicts.
+% here instead of \verb"\up<greek>" in \textsf{upgreek} to avoid conflicts. One
+% may use \verb"bm" to get bold versions.
 %    \begin{macrocode}
-\ifpdef@opt@cmrgreekup
+\pdef@temp@empty
+\pdef@test@cgu
+\pdef@test@cmrgreekup
+\ifpdef@temp
   \RequirePackage[LGR,T1]{fontenc}
   \DeclareSymbolFont{greekupcbgreek}{LGR}{cmr}{m}{n}
   \SetSymbolFont{greekupcbgreek}{bold}{LGR}{cmr}{bx}{n}
@@ -378,6 +400,32 @@ and other files not specified belong to the public domain.
   \DeclareMathSymbol{\chiup}{\mathord}{greekupcbgreek}{113}
   \DeclareMathSymbol{\psiup}{\mathord}{greekupcbgreek}{121}
   \DeclareMathSymbol{\omegaup}{\mathord}{greekupcbgreek}{119}
+\fi
+
+%    \end{macrocode}
+%
+% \changes{v1.2.1}{2018/10/04}{
+%   Introduce NFSS fonts for Greek letters.
+% }
+% \DescribeMacro{cgunfss}
+% \DescribeMacro{\mathrmup}
+% \DescribeMacro{\mathbfup}
+% \DescribeMacro{\mathsfup}
+% \DescribeMacro{\mathitup}
+% \DescribeMacro{\mathttup}
+% \DescribeMacro{\mathslup}
+% Introduce NFSS fonts for Greek letters. For example, one may use
+% \verb"\mathbfup{a}" to get the bold Greek letter $\alpha$.
+%    \begin{macrocode}
+\ifpdef@opt@cgunfss
+  \RequirePackage[LGR,T1]{fontenc}
+  \DeclareMathAlphabet{\mathrmup}{LGR}{cmr}{m}{n}
+  \DeclareMathAlphabet{\mathbfup}{LGR}{cmr}{bx}{n}
+  \DeclareMathAlphabet{\mathsfup}{LGR}{cmss}{m}{n}
+  \DeclareMathAlphabet{\mathitup}{LGR}{cmr}{m}{it}
+  \DeclareMathAlphabet{\mathttup}{LGR}{cmtt}{m}{n}
+  \DeclareMathAlphabet{\mathttup}{LGR}{cmtt}{m}{n}
+  \DeclareMathAlphabet{\mathslup}{LGR}{cmr}{m}{sl}
 \fi
 
 %    \end{macrocode}
