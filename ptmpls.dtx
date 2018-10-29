@@ -114,7 +114,7 @@ and other files not specified belong to the public domain.
 \fi
 %</internal>
 %<*driver>
-\documentclass{ltxdoc}
+\documentclass[doc]{pnote}
 \usepackage{pdef}
 \usepackage[numbered]{hypdoc}
 \EnableCrossrefs
@@ -138,15 +138,16 @@ and other files not specified belong to the public domain.
 %^^A <DATE>
 % \date{
 %   \begin{tabular}{c}
-%     October 4, 2018 \\
+%     October 29, 2018 \\
 %     Version: \filedate, \fileversion
 %   \end{tabular}
 % }
 %
 % \maketitle
 %
-% \changes{v1.2.1}{2018/09/25}{
-%   Fix miscellaneous typos, and update Makefile.
+% \changes{v1.2.1}{2018/10/29}{
+%   Fix miscellaneous typos, and update Makefile. Rearrange the docuemntation
+%   using \texttt{pnote}.
 % }
 % \changes{v1.2.0}{2018/08/06}{
 %   Merge files into \texttt{ptmpls.dtx}, and strip out unnecessary commands
@@ -281,7 +282,7 @@ and other files not specified belong to the public domain.
 % Provide the package itself.
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{pdef}[2018/10/04 v1.2.1 Personal macro package]
+\ProvidesPackage{pdef}[2018/10/29 v1.2.1 Personal macro package]
 %    \end{macrocode}
 %
 % Decalre macros.
@@ -726,12 +727,21 @@ and other files not specified belong to the public domain.
 % Provide the document class itself.
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{pnote}[2018/10/04 v1.2.1 Note class]
+\ProvidesClass{pnote}[2018/10/29 v1.2.1 Note class]
 
 %    \end{macrocode}
 %
 % Declare options.
 %    \begin{macrocode}
+\def\pnote@temp@empty{
+  \let\pnote@temp@var=\undefined
+}
+\def\pnote@temp@fill{
+  \def\pnote@temp@var{\relax}
+}
+\def\ifpnote@temp{
+  \ifcsname pnote@temp@var\endcsname
+}
 \def\pnote@opt@dec#1{
   \DeclareOption{#1}{
       \expandafter\def\csname pnote@opt@name@#1\endcsname{\relax}
@@ -739,8 +749,15 @@ and other files not specified belong to the public domain.
   \expandafter\def\csname ifpnote@opt@#1\endcsname{
       \expandafter\ifcsname pnote@opt@name@#1\endcsname
   }
+  \expandafter\def\csname pnote@test@#1\endcsname{
+    \ifcsname pnote@opt@name@#1\endcsname\pnote@temp@fill\fi
+  }
+  \expandafter\def\csname pnote@ntest@#1\endcsname{
+    \ifcsname pnote@opt@name@#1\endcsname\pnote@temp@empty\fi
+  }
 }
 
+\pnote@opt@dec{doc}
 \pnote@opt@dec{english}
 \pnote@opt@dec{nochinese}
 
@@ -748,6 +765,10 @@ and other files not specified belong to the public domain.
 
 %    \end{macrocode}
 %
+% \changes{v1.2.1}{2018/10/29}{
+%   Add new option \texttt{doc}.
+% }
+% \DescribeMacro{doc}
 % \DescribeMacro{english}
 % \DescribeMacro{nochinese}
 % Load classes and pass options. By default Chinese typesetting environment
@@ -758,9 +779,21 @@ and other files not specified belong to the public domain.
   \PassOptionsToClass{scheme=plain}{ctexart}
 \fi
 
-\ifpnote@opt@nochinese
+\ifpnote@opt@doc
+  \LoadClass{ltxdoc}
+\fi
+
+\pnote@temp@empty
+\pnote@test@nochinese
+\pnote@ntest@doc
+\ifpnote@temp
   \LoadClass[UTF8, 12pt]{article}
-\else
+\fi
+
+\pnote@temp@fill
+\pnote@ntest@nochinese
+\pnote@ntest@doc
+\ifpnote@temp  
   \LoadClass[UTF8, zihao=-4]{ctexart}
 \fi
 
