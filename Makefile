@@ -1,3 +1,7 @@
+TDATE = April 10, 2019
+NDATE = 2019\/04\/10
+VER = 1.3.0
+
 REALOBJS = ptmpls.ins pdef.sty pnote.cls Readme.md
 AUXOBJS = ptmpls.idx ptmpls.glo
 INDEXOBJS = ptmpls.ind ptmpls.gls
@@ -6,6 +10,12 @@ TEMPOBJS = ptmpls.aux ptmpls.hd ptmpls.ilg  ptmpls.ins ptmpls.log ptmpls.out\
 
 .PHONY: all
 all: ptmpls.pdf
+
+ptmpls.dtx: ptmpls.orig
+	cp ptmpls.orig ptmpls.dtx
+	sed -i 's/<!TDATE>/$(TDATE)/g' ptmpls.dtx
+	sed -i 's/<!NDATE>/$(NDATE)/g' ptmpls.dtx
+	sed -i 's/<!VER>/$(VER)/g' ptmpls.dtx
 
 ptmpls.pdf: $(REALOBJS) $(INDEXOBJS)
 	lualatex ptmpls.dtx

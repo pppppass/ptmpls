@@ -19,14 +19,7 @@ this repository consists of
 1. Personal macro package `pdef.sty`,
 2. Note class `pnote.cls`,
 3. PKU-style paper class `pkupaper.cls`,
-4. PKU-style slide class `pkuslide.cls`.
-
-It should be mentioned that the documentation is under construction on the
-`doc` branch. It is planned that the macro set will be merged into a single
-`ptmpls.dtx` file. Thus, there will be two readme files in the folder at the
-same time, one of which is the original one to clarify licenses, and another
-is generated from `ptmpls.dtx` and overwrites the original one when
-extracting.
+4. Slide class `pslide.cls`.
 
 To extract the package, simply use the command `lualatex ptmpls.dtx`. For
 detailed usages, please refer to the package documentation `ptmpls.pdf`,
@@ -44,7 +37,7 @@ together with the preamble and postamble in each file.
 \preamble
 ptmpls - pppppass' TeX Templates
 
-Copyright (C) 2017-2018 by pppppass <lzh2016p@pku.edu.cn>
+Copyright (C) 2017-2019 by pppppass <lzh2016p@pku.edu.cn>
 
 This macro set is held on
   http://www.github.com/pppppass/ptmpls
@@ -72,7 +65,8 @@ and the derived files
   ptmpls.pdf,
   ptmpls.ins,
   pdef.sty,
-  pnote.sty,
+  pnote.cls,
+  pslide.cls,
 while
   Readme.md
 and other files not specified belong to the public domain.
@@ -84,6 +78,10 @@ and other files not specified belong to the public domain.
 \usedir{tex/latex/ptmpls}
 \generate{
   \file{pnote.cls}{\from{ptmpls.dtx}{pnote}}
+}
+\usedir{tex/latex/ptmpls}
+\generate{
+  \file{pslide.cls}{\from{ptmpls.dtx}{pslide}}
 }
 %</install>
 %<install>\endbatchfile
@@ -135,15 +133,19 @@ and other files not specified belong to the public domain.
 %   \thanks{E-mail: \href{mailto:lzh2016p@pku.edu.cn}{\texttt{lzh2016p@pku.edu.cn}}}^^A
 % }
 %
-%^^A <DATE>
+%
 % \date{
 %   \begin{tabular}{c}
-%     October 29, 2018 \\
+%     April 10, 2019 \\
 %     Version: \filedate, \fileversion
 %   \end{tabular}
 % }
 %
 % \maketitle
+%
+% \changes{v1.3.0}{2019/04/10}{
+%   Merge \text{pkuslide.cls} into the repository as \text{pslide.cls}.
+% }
 %
 % \changes{v1.2.1}{2018/10/29}{
 %   Fix miscellaneous typos, and update Makefile. Rearrange the docuemntation
@@ -192,11 +194,11 @@ and other files not specified belong to the public domain.
 % \item Personal macro package \verb"pdef.sty";
 % \item Note class \verb"pnote.cls";
 % \item PKU-style paper class \verb"pkupaper.cls";
-% \item PKU-style slide class \verb"pkuslide.cls".
+% \item Slide class \verb"pslide.cls".
 % \end{enumerate}
 %
 % This repository is a derived work from some packages under LPPL (LaTeX
-% Project Public License). To be exact, this repository contains codes derived
+% Project Public License). To be concrete, this repository contains codes derived
 % from
 %   \href{https://ctan.org/pkg/yhmath}{\textsf{yhmath}}
 % and
@@ -206,7 +208,9 @@ and other files not specified belong to the public domain.
 %
 % \section{Usage}
 %
-% There is simple one main file for this repository: \verb"ptmpls.dtx". To
+% \subsection{Extract manually}
+%
+% There is one single main file for this repository: \verb"ptmpls.dtx". To
 % extract the packages and classes, one needs to \LaTeX{} it by
 %\begin{verbatim}
 %lualatex ptmpls.dtx
@@ -214,15 +218,10 @@ and other files not specified belong to the public domain.
 % or say running LuaLaTeX through this file. As described in this file itself,
 % pdfLaTeX
 % or XeLaTeX may also work, but \TeX{} programs are likely to fail. \emph{Note
-% that files to be extracted, like} \verb"pdef.sty" \emph{will be overwritten!}
+% that the files to be extracted, including} \verb"pdef.sty" \emph{and}
+% \emph{many others, will be overwritten!}
 %
-% It is suggested to download only \verb"ptmpls.dtx" and extract the files on
-% one's own. However, a packed version of extracted files is also provided.
-% Please refer to
-%   \href{https://github.com/pppppass/textmpls/releases}{the release page}
-% for details.
-%
-% To compile the documentation, the simple commmand
+% To compile the documentation, the commmand
 %\begin{verbatim}
 %lualatex ptmpls.dtx
 %\end{verbatim}
@@ -231,7 +230,25 @@ and other files not specified belong to the public domain.
 %makeindex -s gind.ist ptmpls.idx
 %makeindex -s gglo.ist -o ptmpls.gls ptmpls.glo
 %\end{verbatim}
-% in required. One may also use
+% in required.
+%
+% To use the package for daily work, one may directly place the
+% \verb"ptmpls.dtx" into the
+% working folder and then extract everything using \verb"make" utilities.
+% And then macros like
+%\begin{verbatim}
+%\usepackage{pdef}
+%\end{verbatim}
+% or
+%\begin{verbatim}
+%\documentclass{pnote}
+%\end{verbatim}
+% should then work smoothly. Options may be added according to the description
+% below.
+%
+% \subsection{Extract with \texttt{make} utilities}
+%
+% There One may also use
 %\begin{verbatim}
 %make
 %\end{verbatim}
@@ -241,19 +258,8 @@ and other files not specified belong to the public domain.
 %\end{verbatim}
 % to automatically extract and compile all the things.
 %
-% To use the package for daily work, one may directly place the
-% \verb"ptmpls.dtx" into the
-% working folder and and extract everything. And then macros like
-%\begin{verbatim}
-%\usepackage{pdef}
-%\end{verbatim}
-% or
-%\begin{verbatim}
-%\documentclass{pnote}
-%\end{verbatim}
-% should then work smoothly. Options may be added according to the description
-% below. One may also download the packed version and unzip the
-% contents. For Git users, it is also possible to clone the repository from
+% \subsection{Clone from the GitHub repository}
+% For Git users, it is also possible to clone the repository from
 % GitHub or create submodules to keep up-to-date, by
 %\begin{verbatim}
 %git clone git@github.com:pppppass/ptmpls
@@ -262,14 +268,26 @@ and other files not specified belong to the public domain.
 %\begin{verbatim}
 %git submodule init git@github.com:ppppass/ptmpls
 %\end{verbatim}
+%
+% \subsection{Download the extracted package}
+% 
+% It is suggested to download only \verb"ptmpls.dtx" and extract the files on
+% one's own. However, a packed version of extracted files is also provided.
+% Please refer to
+%   \href{https://github.com/pppppass/textmpls/releases}{the release page}
+% for details.
+%
+% \subsection{Control the versions and installation}
+%
 % If one finds having copies of the same repository disturbing, it is possible
 % to use symbolic links to link necessary files and get around license issues.
 % A submodule for a repository composed by several separate \LaTeX{} articles
 % exemplifies this situation: linking merely \verb"pdef.sty" and
-% \verb"pnote.sty" to each folder is sufficient for \LaTeX ing. Additionally,
-% \verb"mktexlsr" can also be used, but it is not fully tested. Hopefully, it
-% will install the macro set into \verb"tex/latex/ptmpls" and some other
-% similar directories.
+% \verb"pnote.sty" to each folder is sufficient for \LaTeX ing.
+%
+% To install the package into the local folder, \verb"mktexlsr" can also be
+% used, but it is not fully tested. Hopefully, it will install the macro set
+% into \verb"tex/latex/ptmpls" and some other similar directories.
 %
 % \section{Personal macro package \texttt{pdef.sty}}
 %
@@ -278,14 +296,14 @@ and other files not specified belong to the public domain.
 %<*pdef>
 %    \end{macrocode}
 %
-%^^A <DATE><VER>
+%
 % Provide the package itself.
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{pdef}[2018/10/29 v1.2.1 Personal macro package]
+\ProvidesPackage{pdef}[2019/04/10 1.3.0 Personal macro package]
 %    \end{macrocode}
 %
-% Decalre macros.
+% Define functional macros.
 %    \begin{macrocode}
 \def\pdef@temp@empty{
   \let\pdef@temp@var=\undefined
@@ -723,11 +741,11 @@ and other files not specified belong to the public domain.
 %<*pnote>
 %    \end{macrocode}
 %
-%^^A <DATE><VER>
+%
 % Provide the document class itself.
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{pnote}[2018/10/29 v1.2.1 Note class]
+\ProvidesClass{pnote}[2019/04/10 1.3.0 Note class]
 
 %    \end{macrocode}
 %
@@ -780,7 +798,7 @@ and other files not specified belong to the public domain.
 \fi
 
 \ifpnote@opt@doc
-  \LoadClass{ltxdoc}
+  \LoadClass[UTF8]{ltxdoc}
 \fi
 
 \pnote@temp@empty
@@ -841,6 +859,234 @@ and other files not specified belong to the public domain.
 % Guard.
 %    \begin{macrocode}
 %</pnote>
+%    \end{macrocode}
+%
+% \section{Slide class \texttt{pslide.cls}}
+%
+% Guard.
+%    \begin{macrocode}
+%<*pslide>
+%    \end{macrocode}
+%
+%
+% Provide the document class itself.
+%    \begin{macrocode}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{pslide}[2019/04/10 1.3.0 Slide class]
+
+%    \end{macrocode}
+%
+% Declare options.
+%    \begin{macrocode}
+\def\pslide@temp@empty{
+  \let\pslide@temp@var=\undefined
+}
+\def\pslide@temp@fill{
+  \def\pslide@temp@var{\relax}
+}
+\def\ifpslide@temp{
+  \ifcsname pslide@temp@var\endcsname
+}
+\def\pslide@opt@dec#1{
+  \DeclareOption{#1}{
+      \expandafter\def\csname pslide@opt@name@#1\endcsname{\relax}
+  }
+  \expandafter\def\csname ifpslide@opt@#1\endcsname{
+      \expandafter\ifcsname pslide@opt@name@#1\endcsname
+  }
+  \expandafter\def\csname pslide@test@#1\endcsname{
+    \ifcsname pslide@opt@name@#1\endcsname\pslide@temp@fill\fi
+  }
+  \expandafter\def\csname pslide@ntest@#1\endcsname{
+    \ifcsname pslide@opt@name@#1\endcsname\pslide@temp@empty\fi
+  }
+}
+
+\pslide@opt@dec{english}
+\pslide@opt@dec{nochinese}
+
+\ProcessOptions\relax
+
+%    \end{macrocode}
+%
+% \DescribeMacro{english}
+% \DescribeMacro{nochinese}
+% Similar to \verb"pnote", the two options \verb"english" and \verb"nochinese"
+% switch localization configuration.
+%    \begin{macrocode}
+
+\ifpslide@opt@nochinese
+\LoadClass[UTF8]{beamer}
+\fi
+
+\pslide@temp@empty
+\pslide@ntest@nochinese
+\pslide@test@english
+\ifpslide@temp
+\PassOptionsToClass{scheme=plain}{ctexbeamer}
+\fi
+
+\pslide@temp@empty
+\pslide@ntest@nochinese
+\ifpslide@temp
+\LoadClass[UTF8]{ctexbeamer}
+\fi
+
+%    \end{macrocode}
+%
+% Set themes.
+%    \begin{macrocode}
+\useoutertheme{infolines}
+\useinnertheme{rectangles}
+
+%    \end{macrocode}
+%
+% Set colors.
+%    \begin{macrocode}
+\definecolor{pkured}{HTML}{94070A}
+\colorlet{pkuredgray}{pkured!75!red}
+\colorlet{pkuredblack}{pkured!50!black}
+\definecolor{nonpkublue}{HTML}{03356B}
+\definecolor{nonpkugreen}{HTML}{025709}
+
+\setbeamercolor{structure}{
+  fg=pkured
+}
+
+\setbeamercolor{normal text}{
+  fg=black,
+  bg=white
+}
+\setbeamercolor{alerted text}{
+  fg=nonpkugreen!67!yellow,
+  bg=white
+}
+\setbeamercolor{example text}{
+  fg=nonpkublue,
+  bg=white
+}
+
+\setbeamercolor{palette primary}{
+  fg=pkuredblack,
+  bg=gray!20
+}
+\setbeamercolor{palette secondary}{
+  fg=pkuredblack,
+  bg=pkuredgray!25
+}
+\setbeamercolor{palette tertiary}{
+  fg=gray!10,
+  bg=pkured
+}
+\setbeamercolor{palette quaternary}{
+  fg=gray!10,
+  bg=pkured!80!orange
+}
+
+\setbeamercolor{titlelike}{
+  parent=palette quaternary
+}
+
+\setbeamercolor{frametitle}{
+  fg=gray!10
+}
+
+\setbeamercolor{block title}{
+  fg=gray!10,
+  bg=pkured
+}
+\setbeamercolor{block title alerted}{
+  use=alerted text,
+  fg=gray!10,
+  bg=nonpkugreen!75!bg
+}
+\setbeamercolor{block title example}{
+  use=example text,
+  fg=gray!10,
+  bg=nonpkublue!75!bg
+}
+
+\setbeamercolor{block body}{
+  parent=normal text,
+  use=block title,
+  bg=block title.bg!25!bg
+}
+\setbeamercolor{block body alerted}{
+  parent=normal text,
+  use=block title alerted,
+  bg=block title alerted.bg!25!bg
+}
+\setbeamercolor{block body example}{
+  parent=normal text,
+  use=block title example,
+  bg=block title example.bg!25!bg
+}
+
+\setbeamercolor{sidebar}{
+  bg=pkured!90
+}
+
+\setbeamercolor{palette sidebar primary}{
+  fg=gray!10
+}
+\setbeamercolor{palette sidebar secondary}{
+  fg=pkured!20
+}
+\setbeamercolor{palette sidebar tertiary}{
+  fg=pkured!20
+}
+\setbeamercolor{palette sidebar quaternary}{
+  fg=gray!10
+}
+
+\setbeamercolor*{separation line}{}
+\setbeamercolor*{fine separation line}{}
+
+%    \end{macrocode}
+%
+% Set fonts.
+%    \begin{macrocode}
+\usefonttheme{professionalfonts}
+
+%    \end{macrocode}
+%
+% Slide quotes utilities. General usage is
+%\begin{verbatim}
+%\includepdf[pagecommand=\footquote{\footnotesize Authorship}, pages=1, scale=0.8]{Source.pdf}
+%\end{verbatim}
+%    \begin{macrocode}
+\newenvironment{quoteslide}
+{%
+\setbeamercolor{background canvas}{bg=}%
+\setbeamertemplate{headline}{}%
+\setbeamertemplate{footlines}[infolines theme]%
+}
+{}
+
+%    \end{macrocode}
+%
+% \DescribeMacro{\footquote}
+% Insert a \verb"parbox" with appropriate width in order to typeset
+% bibliographical information in place. Best used with \verb"\footnotesize"
+%    \begin{macrocode}
+\newcommand\footquote[1]{{%
+  \quitvmode\vskip\stretch{1}\parbox{0.9\paperwidth}{#1}%
+}}
+
+%    \end{macrocode}
+%
+% \DescribeMacro{\balancefootquote}
+% Balance the \verb"footquote" by inserting a $-1.5$ stretch, which vanish the
+% stretch on the bottom experimentally. Originlly designed for using
+% \verb"\footquote" outside \verb"\includepdf" frames.
+%    \begin{macrocode}
+\newcommand\balancefootquote{\vskip\stretch{-1.5}}
+
+%    \end{macrocode}
+%
+% Guard.
+%    \begin{macrocode}
+%</pslide>
 %    \end{macrocode}
 %
 % \StopEventually{^^A
