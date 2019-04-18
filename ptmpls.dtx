@@ -1071,6 +1071,7 @@ and other files not specified belong to the public domain.
 %    \begin{macrocode}
 \newcommand\footquote[1]{{%
   \quitvmode\vskip\stretch{1}\parbox{0.9\paperwidth}{#1}%
+  \global\setcounter{framenumber}{\value{page}}%
 }}
 
 %    \end{macrocode}
