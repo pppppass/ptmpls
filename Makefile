@@ -11,7 +11,7 @@ TEMPOBJS = ptmpls.aux ptmpls.hd ptmpls.ilg  ptmpls.ins ptmpls.log ptmpls.out\
 .PHONY: all
 all: ptmpls.pdf
 
-ptmpls.dtx: ptmpls.orig
+ptmpls.dtx: $(widecard ptmpls.orig)
 	cp ptmpls.orig ptmpls.dtx
 	sed -i 's/<!TDATE>/$(TDATE)/g' ptmpls.dtx
 	sed -i 's/<!NDATE>/$(NDATE)/g' ptmpls.dtx
