@@ -136,19 +136,24 @@ and other files not specified belong to the public domain.
 %
 % \date{
 %   \begin{tabular}{c}
-%     April 10, 2019 \\
+%     October 6, 2019 \\
 %     Version: \filedate, \fileversion
 %   \end{tabular}
 % }
 %
 % \maketitle
 %
+% \changes{v1.4.0}{2019/10/06}{
+%   Add commands into \texttt{pdef} for non-delimiter brackets and
+%   annotatoins.
+% }
+%
 % \changes{v1.3.0}{2019/04/10}{
 %   Merge \text{pkuslide.cls} into the repository as \text{pslide.cls}.
 % }
 %
 % \changes{v1.2.1}{2018/10/29}{
-%   Fix miscellaneous typos, and update Makefile. Rearrange the docuemntation
+%   Fix miscellaneous typos, and update Makefile. Rearrange the documentation
 %   using \texttt{pnote}.
 % }
 % \changes{v1.2.0}{2018/08/06}{
@@ -300,7 +305,7 @@ and other files not specified belong to the public domain.
 % Provide the package itself.
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{pdef}[2019/04/10 1.3.0 Personal macro package]
+\ProvidesPackage{pdef}[2019/10/06 1.4.0 Personal macro package]
 %    \end{macrocode}
 %
 % Define functional macros.
@@ -340,6 +345,34 @@ and other files not specified belong to the public domain.
 
 %    \end{macrocode}
 %
+% \DescribeMacro{\setanno}
+% \DescribeMacro{\showanno}
+% \DescribeMacro{\hideanno}
+% \DescribeMacro{\ifanno*ANNO*}
+% \changes{v1.4.0}{2019/10/06}{
+%   Add annotation mechanism.
+% }
+% Define macros for annotation. Example usage is 
+%\begin{verbatim}
+%\setanno{draft}
+%\showanno{draft}
+%{\ifannodraft\color{red}This is annotation.\fi}
+%\end{verbatim}
+%    \begin{macrocode}
+\def\setanno#1{
+  \expandafter\def\csname ifanno#1\endcsname{
+    \ifcsname pdef@anno@name@#1\endcsname
+  }
+}
+\def\showanno#1{
+  \expandafter\def\csname pdef@anno@name@#1\endcsname{\relax}
+}
+\def\hideanno#1{
+  \expandafter\let\csname pdef@anno@name@#1\endcsname=\undefined
+}
+
+%    \end{macrocode}
+
 % Require basic packages.
 %    \begin{macrocode}
 \RequirePackage{amsmath}
@@ -374,10 +407,10 @@ and other files not specified belong to the public domain.
 
 %    \end{macrocode}
 %
-% \changes{v1.2.1}{2018/10/04}{
-  %   Add synonym option \texttt{cgu}.
-  % }
 % \DescribeMacro{cgu}
+% \changes{v1.2.1}{2018/10/04}{
+%   Add synonym option \texttt{cgu}.
+% }
 % \DescribeMacro{cmrgreekup}
 % \DescribeMacro{\*GREEKCHAR*up}
 % Introduce upright Greek letters from CB Greek fonts as from \textsf{cbgreek}
@@ -423,10 +456,10 @@ and other files not specified belong to the public domain.
 
 %    \end{macrocode}
 %
+% \DescribeMacro{cgunfss}
 % \changes{v1.2.1}{2018/10/04}{
 %   Introduce NFSS fonts for Greek letters.
 % }
-% \DescribeMacro{cgunfss}
 % \DescribeMacro{\mathrmup}
 % \DescribeMacro{\mathbfup}
 % \DescribeMacro{\mathsfup}
@@ -500,6 +533,10 @@ and other files not specified belong to the public domain.
 % \DescribeMacro{\sbr}
 % \DescribeMacro{\cbr}
 % \DescribeMacro{\pbr}
+% \changes{v1.4.0}{2018/10/06}{
+%   Fixed \texttt{pbr} by using \texttt{\textbackslash langle} and
+%   \texttt{\textbackslash rangle}.
+% }
 % \DescribeMacro{\fbr}
 % \DescribeMacro{\gbr}
 % Define shorthands for paired brackets. The option \verb"nomacro" is used to forbid
@@ -509,9 +546,29 @@ and other files not specified belong to the public domain.
   \newcommand{\rbr}[1]{\left( #1 \right)}
   \newcommand{\sbr}[1]{\left[ #1 \right]}
   \newcommand{\cbr}[1]{\left\{ #1 \right\}}
-  \newcommand{\pbr}[1]{\left< #1 \right>}
+  \newcommand{\pbr}[1]{\left\langle #1 \right\rangle}
   \newcommand{\fbr}[1]{\left\lfloor #1 \right\rfloor}
   \newcommand{\gbr}[1]{\left\lceil #1 \right\rceil}
+
+%    \end{macrocode}
+%
+% \DescribeMacro{\frbr}
+% \DescribeMacro{\fsbr}
+% \DescribeMacro{\fcbr}
+% \DescribeMacro{\fpbr}
+% \DescribeMacro{\ffbr}
+% \DescribeMacro{\fgbr}
+% \changes{v1.4.0}{2018/10/06}{
+%   Introduce non-delimiter brackets.
+% }
+% Define shorthands for non-delimiter brackets, where \texttt{f} for fixed.
+%    \begin{macrocode}
+  \newcommand{\frbr}[1]{( #1 )}
+  \newcommand{\fsbr}[1]{[ #1 ]}
+  \newcommand{\fcbr}[1]{\{ #1 \}}
+  \newcommand{\fpbr}[1]{\langle #1 \rangle}
+  \newcommand{\ffbr}[1]{\lfloor #1 \rfloor}
+  \newcommand{\fgbr}[1]{\lceil #1 \rceil}
 
 %    \end{macrocode}
 %
@@ -548,9 +605,6 @@ and other files not specified belong to the public domain.
 
 %    \end{macrocode}
 %
-% \changes{v1.2.1}{2018/08/23}{
-%   Reintroduce matrix brackets.
-% }
 % \DescribeMacro{\mnbr}
 % \DescribeMacro{\mrbr}
 % \DescribeMacro{\msbr}
@@ -558,15 +612,18 @@ and other files not specified belong to the public domain.
 % \DescribeMacro{\mabr}
 % \DescribeMacro{\mmbr}
 % \DescribeMacro{\mpbr}
+% \changes{v1.2.1}{2018/08/23}{
+%   Reintroduce matrix brackets.
+% }
 % Define brackets for matrices.
 %    \begin{macrocode}
-\newcommand{\mnbr}[1]{{\begin{matrix} #1 \end{matrix}}}
-\newcommand{\mrbr}[1]{{\begin{pmatrix} #1 \end{pmatrix}}}
-\newcommand{\msbr}[1]{{\begin{bmatrix} #1 \end{bmatrix}}}
-\newcommand{\mcbr}[1]{{\begin{Bmatrix} #1 \end{Bmatrix}}}
-\newcommand{\mabr}[1]{{\begin{vmatrix} #1 \end{vmatrix}}}
-\newcommand{\mmbr}[1]{{\begin{Vmatrix} #1 \end{Vmatrix}}}
-\newcommand{\mpbr}[1]{{\left<\begin{matrix} #1 \end{matrix}\right>}}
+  \newcommand{\mnbr}[1]{{\begin{matrix} #1 \end{matrix}}}
+  \newcommand{\mrbr}[1]{{\begin{pmatrix} #1 \end{pmatrix}}}
+  \newcommand{\msbr}[1]{{\begin{bmatrix} #1 \end{bmatrix}}}
+  \newcommand{\mcbr}[1]{{\begin{Bmatrix} #1 \end{Bmatrix}}}
+  \newcommand{\mabr}[1]{{\begin{vmatrix} #1 \end{vmatrix}}}
+  \newcommand{\mmbr}[1]{{\begin{Vmatrix} #1 \end{Vmatrix}}}
+  \newcommand{\mpbr}[1]{{\left<\begin{matrix} #1 \end{matrix}\right>}}
 
 %    \end{macrocode}
 %
@@ -745,7 +802,7 @@ and other files not specified belong to the public domain.
 % Provide the document class itself.
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{pnote}[2019/04/10 1.3.0 Note class]
+\ProvidesClass{pnote}[2019/10/06 1.4.0 Note class]
 
 %    \end{macrocode}
 %
@@ -783,10 +840,10 @@ and other files not specified belong to the public domain.
 
 %    \end{macrocode}
 %
+% \DescribeMacro{doc}
 % \changes{v1.2.1}{2018/10/29}{
 %   Add new option \texttt{doc}.
 % }
-% \DescribeMacro{doc}
 % \DescribeMacro{english}
 % \DescribeMacro{nochinese}
 % Load classes and pass options. By default Chinese typesetting environment
@@ -872,7 +929,7 @@ and other files not specified belong to the public domain.
 % Provide the document class itself.
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{pslide}[2019/04/10 1.3.0 Slide class]
+\ProvidesClass{pslide}[2019/10/06 1.4.0 Slide class]
 
 %    \end{macrocode}
 %

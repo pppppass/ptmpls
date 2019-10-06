@@ -29,6 +29,7 @@ ptmpls.gls: | ptmpls.glo
 
 .SECONDEXPANSION:
 $(REALOBJS) $(AUXOBJS): ptmpls.dtx
+	rm -f $(INDEXOBJS)
 	lualatex ptmpls.dtx
 
 .PHONY: pack
