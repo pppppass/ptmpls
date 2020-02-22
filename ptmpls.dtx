@@ -37,7 +37,7 @@ together with the preamble and postamble in each file.
 \preamble
 ptmpls - pppppass' TeX Templates
 
-Copyright (C) 2017-2019 by pppppass <lzh2016p@pku.edu.cn>
+Copyright (C) 2017-2020 by pppppass <lzh2016p@pku.edu.cn>
 
 This macro set is held on
   http://www.github.com/pppppass/ptmpls
@@ -136,16 +136,20 @@ and other files not specified belong to the public domain.
 %
 % \date{
 %   \begin{tabular}{c}
-%     October 6, 2019 \\
+%     Feburary 22, 2020 \\
 %     Version: \filedate, \fileversion
 %   \end{tabular}
 % }
 %
 % \maketitle
 %
+% \changes{v1.4.1}{2020/02/22}{
+%   Add commands into \texttt{pdef} for varible-size non-delimiter brackets.
+% }
+%
 % \changes{v1.4.0}{2019/10/06}{
 %   Add commands into \texttt{pdef} for non-delimiter brackets and
-%   annotatoins.
+%   annotations.
 % }
 %
 % \changes{v1.3.0}{2019/04/10}{
@@ -305,7 +309,7 @@ and other files not specified belong to the public domain.
 % Provide the package itself.
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{pdef}[2019/10/06 1.4.0 Personal macro package]
+\ProvidesPackage{pdef}[2020/02/22 1.4.1 Personal macro package]
 %    \end{macrocode}
 %
 % Define functional macros.
@@ -533,7 +537,7 @@ and other files not specified belong to the public domain.
 % \DescribeMacro{\sbr}
 % \DescribeMacro{\cbr}
 % \DescribeMacro{\pbr}
-% \changes{v1.4.0}{2018/10/06}{
+% \changes{v1.4.0}{2019/10/06}{
 %   Fixed \texttt{pbr} by using \texttt{\textbackslash langle} and
 %   \texttt{\textbackslash rangle}.
 % }
@@ -558,10 +562,10 @@ and other files not specified belong to the public domain.
 % \DescribeMacro{\fpbr}
 % \DescribeMacro{\ffbr}
 % \DescribeMacro{\fgbr}
-% \changes{v1.4.0}{2018/10/06}{
+% \changes{v1.4.0}{2019/10/06}{
 %   Introduce non-delimiter brackets.
 % }
-% Define shorthands for non-delimiter brackets, where \texttt{f} for fixed.
+% Define shorthands for non-delimiter brackets, where \texttt{f} for ``fixed''.
 %    \begin{macrocode}
   \newcommand{\frbr}[1]{( #1 )}
   \newcommand{\fsbr}[1]{[ #1 ]}
@@ -578,6 +582,29 @@ and other files not specified belong to the public domain.
 %    \begin{macrocode}
   \newcommand{\abs}[1]{\left| #1 \right|}
   \newcommand{\norm}[1]{\left\| #1 \right\|}
+
+%    \end{macrocode}
+%
+% \DescribeMacro{\frbr}
+% \DescribeMacro{\fsbr}
+% \DescribeMacro{\fcbr}
+% \DescribeMacro{\fpbr}
+% \DescribeMacro{\ffbr}
+% \DescribeMacro{\fgbr}
+% \changes{v1.4.1}{2020/02/22}{
+%   Introduce brackets with a specified variable size.
+% }
+% Define shorthands for non-delimiter brackets with a specified variable size.
+% Here \texttt{b} stands for  ``big''.
+%    \begin{macrocode}
+  \newcommand{\brbr}[2]{#1( #2 #1)}
+  \newcommand{\bsbr}[2]{#1[ #2 #1]}
+  \newcommand{\bcbr}[2]{#1\{ #2 #1\}}
+  \newcommand{\bpbr}[2]{#1\langle #2 #1\rangle}
+  \newcommand{\bfbr}[2]{#1\lfloor #2 #1\rfloor}
+  \newcommand{\bgbr}[2]{#1\lceil #2 #1\rceil}
+  \newcommand{\babs}[2]{#1| #2 #1|}
+  \newcommand{\bnorm}[2]{#1\| #2 #1\|}
 
 %    \end{macrocode}
 %
