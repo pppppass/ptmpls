@@ -136,12 +136,16 @@ and other files not specified belong to the public domain.
 %
 % \date{
 %   \begin{tabular}{c}
-%     Feburary 22, 2020 \\
+%     March 14, 2020 \\
 %     Version: \filedate, \fileversion
 %   \end{tabular}
 % }
 %
 % \maketitle
+%
+% \changes{v1.4.2}{2020/03/14}{
+%   Add bounding box indicator commands.
+% }
 %
 % \changes{v1.4.1}{2020/02/22}{
 %   Add commands into \texttt{pdef} for varible-size non-delimiter brackets.
@@ -309,7 +313,7 @@ and other files not specified belong to the public domain.
 % Provide the package itself.
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{pdef}[2020/02/22 1.4.1 Personal macro package]
+\ProvidesPackage{pdef}[2020/03/14 1.4.2 Personal macro package]
 %    \end{macrocode}
 %
 % Define functional macros.
@@ -529,6 +533,57 @@ and other files not specified belong to the public domain.
     }
   \fi
 \fi
+
+%    \end{macrocode}
+%
+%
+% \DescribeMacro{\showdraftbox}
+% \changes{v1.4.2}{2020/03/14}{
+%   Add bounding box indicators.
+% }
+% Show the bounding box for artitrary content. Use
+%\begin{verbatim}
+%\def\showdraftbox\relax{}
+%\end{verbatim}
+% to set it on, and include the content as in
+%\begin{verbatim}
+%\draftbox{Content}
+%\end{verbatim}
+% \DescribeMacro{nolstdefault}
+%    \begin{macrocode}
+\def\draftbox#1{%
+  \ifdefined\showdraftbox%
+    {\setlength\fboxsep{0pt}\fbox{#1}}%
+  \else%
+    #1%
+  \fi%
+}
+
+%    \end{macrocode}
+%
+% \DescribeMacro{\showtikzbox}
+% \changes{v1.4.2}{2020/03/14}{
+%   Add TikZ bounding box indicators.
+% }
+% Show the bounding box for TikZ pictures. Use
+%\begin{verbatim}
+%\def\showtikzbox\relax{}
+%\end{verbatim}
+% to set it on, and add
+%\begin{verbatim}
+%\showtikzbox
+%\end{verbatim}
+% to particular TikZ pictures.
+% \DescribeMacro{nolstdefault}
+%    \begin{macrocode}
+\def\tikzbox{
+  \ifdefined\showtikzbox
+    \draw
+      (current bounding box.south west)
+      rectangle
+      (current bounding box.north east);
+  \fi
+}
 
 %    \end{macrocode}
 %
