@@ -10,6 +10,5 @@ this repository consists of
 3. PKU-style paper class `pkupaper.cls`,
 4. Slide class `pslide.cls`.
 
-To extract the package, simply use the command `lualatex ptmpls.dtx`. For
-detailed usages, please refer to the package documentation `ptmpls.pdf`,
-together with the preamble and postamble in each file.
+Use `lualatex ptmpls.dtx` to extract the package. For detailed usages, refer to
+the documentation `ptmpls.pdf`.

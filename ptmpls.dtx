@@ -1,10 +1,8 @@
 % \iffalse meta-comment
 % !TeX encoding = UTF-8
 % !TeX program = LuaLaTeX
-% Note that pdfLaTeX, XeLaTeX should also work here. When encountering
-% difficulties, try changing your LaTeX program. However, TeX generally will
-% fail here.
-% This file should be named ptmpls.dtx strictly.
+% The suggestion is LuaLaTeX, while pdfLaTeX or XeLaTeX should also work.
+% However, the filename should be strictly ptmpls.dtx.
 %<*internal>
 \iffalse
 %</internal>
@@ -21,9 +19,8 @@ this repository consists of
 3. PKU-style paper class `pkupaper.cls`,
 4. Slide class `pslide.cls`.
 
-To extract the package, simply use the command `lualatex ptmpls.dtx`. For
-detailed usages, please refer to the package documentation `ptmpls.pdf`,
-together with the preamble and postamble in each file.
+Use `lualatex ptmpls.dtx` to extract the package. For detailed usages, refer to
+the documentation `ptmpls.pdf`.
 %</readme>
 %<*internal>
 \fi
@@ -37,7 +34,7 @@ together with the preamble and postamble in each file.
 \preamble
 ptmpls - pppppass' TeX Templates
 
-Copyright (C) 2017-2020 by pppppass <lzh2016p@pku.edu.cn>
+By pppppass <lzh2016p@pku.edu.cn>
 
 This macro set is held on
   http://www.github.com/pppppass/ptmpls
@@ -47,10 +44,9 @@ and the postamble.
 
 \endpreamble
 \postamble
-This work may be distributed and/or modified under the
-conditions of the LaTeX Project Public License, either version 1.3
-of this license or (at your option) any later version.
-The latest version of this license is in
+This work may be distributed and/or modified under the conditions of the LaTeX
+Project Public License, either version 1.3 of this license or (at your option)
+any later version. The latest version of this license is in
   http://www.latex-project.org/lppl.txt,
 and version 1.3 or later is part of all distributions of LaTeX
 version 2005/12/01 or later.
@@ -59,17 +55,14 @@ This work has the LPPL maintenance status "maintained".
 
 The Current Maintainer of this work is pppppass <lzh2016p@pku.edu.cn>.
 
-This work consists of the file
+By "this work", it is refered to the file
   ptmpls.dtx,
 and the derived files
   ptmpls.pdf,
   ptmpls.ins,
   pdef.sty,
   pnote.cls,
-  pslide.cls,
-while
-  Readme.md
-and other files not specified belong to the public domain.
+  pslide.cls.
 \endpostamble
 \usedir{tex/latex/ptmpls}
 \generate{
@@ -133,71 +126,68 @@ and other files not specified belong to the public domain.
 %   \thanks{E-mail: \href{mailto:lzh2016p@pku.edu.cn}{\texttt{lzh2016p@pku.edu.cn}}}^^A
 % }
 %
-%
 % \date{
 %   \begin{tabular}{c}
-%     March 14, 2020 \\
+%     July 11, 2024 \\
 %     Version: \filedate, \fileversion
 %   \end{tabular}
 % }
 %
 % \maketitle
 %
+% \changes{v1.5.0}{2024/07/11}{
+%   Clean up language.
+% }
+%
 % \changes{v1.4.2}{2020/03/14}{
-%   Add bounding box indicator commands.
+%   Macros to visualize bounding boxes.
 % }
-%
 % \changes{v1.4.1}{2020/02/22}{
-%   Add commands into \texttt{pdef} for varible-size non-delimiter brackets.
+%   Macros for adjustbale fixed-size brackets.
 % }
-%
 % \changes{v1.4.0}{2019/10/06}{
-%   Add commands into \texttt{pdef} for non-delimiter brackets and
-%   annotations.
+%   Macros for fixed-size brackets.
 % }
 %
 % \changes{v1.3.0}{2019/04/10}{
-%   Merge \text{pkuslide.cls} into the repository as \text{pslide.cls}.
+%   Merge \text{pkuslide.cls} into this repository as \text{pslide.cls}.
 % }
 %
 % \changes{v1.2.1}{2018/10/29}{
-%   Fix miscellaneous typos, and update Makefile. Rearrange the documentation
-%   using \texttt{pnote}.
+%   Restructure the documentation.
 % }
 % \changes{v1.2.0}{2018/08/06}{
-%   Merge files into \texttt{ptmpls.dtx}, and strip out unnecessary commands
-%   according to KISS.
+%   Merge files into \texttt{ptmpls.dtx}.
 % }
 %
 % \changes{v1.1.1}{2018/06/19}{
-%   Update bibliography sorting and footnotes in \texttt{pkupaper.cls}
+%   Macros for footnotes in \texttt{pkupaper.cls}.
 % }
 % \changes{v1.1.0}{2018/05/16}{
-%   Update \texttt{nochinese} option in \texttt{pkupaper.cls} and reformat
-%   font sizes.
+%   Option \texttt{nochinese} in \texttt{pkupaper.cls}.
 % }
 %
 % \changes{v1.0.4}{2018/04/30}{
 %   Hot fix for \TeX{} Live 2017.
 % }
 % \changes{v1.0.3}{2018/04/17}{
-%   Introduce some symbols.
+%   Macros for symbols.
 % }
 % \changes{v1.0.2}{2018/03/22}{
-%   Fix \texttt{quoteslide} environment and reformat templates.
+%   Fix \texttt{quoteslide} environment. Restructure the files.
 % }
 % \changes{v1.0.1}{2018/01/20}{
 %   Update version header.
 % }
 % \changes{v1.0.0}{2018/10/25}{
-%   First public release.
+%   First release.
 % }
 %
 % \tableofcontents
 %
 % \section{Introduction}
 %
-% This repository \textsf{ptmpls} is a macro set about TeX / LaTeX templates
+% This repository \textsf{ptmpls} is a macro set of TeX / LaTeX templates
 % made by
 %   \href{mailto:lzh2016p@pku.edu.cn}{pppppass}.
 % Held on
@@ -224,31 +214,25 @@ and other files not specified belong to the public domain.
 % \subsection{Extract manually}
 %
 % There is one single main file for this repository: \verb"ptmpls.dtx". To
-% extract the packages and classes, one needs to \LaTeX{} it by
+% extract the style files and the class files, \LaTeX{} it like
 %\begin{verbatim}
 %lualatex ptmpls.dtx
 %\end{verbatim}
-% or say running LuaLaTeX through this file. As described in this file itself,
-% pdfLaTeX
-% or XeLaTeX may also work, but \TeX{} programs are likely to fail. \emph{Note
-% that the files to be extracted, including} \verb"pdef.sty" \emph{and}
-% \emph{many others, will be overwritten!}
+% \emph{Note that the files to be extracted, including} \verb"pdef.sty"
+% \emph{and many others, will be overwritten!}
 %
-% To compile the documentation, the commmand
+% To compile the documentation, run
 %\begin{verbatim}
 %lualatex ptmpls.dtx
 %\end{verbatim}
-% is sufficient. However, if one wants to build the index, another execution of
+% To build the index then, run
 %\begin{verbatim}
 %makeindex -s gind.ist ptmpls.idx
 %makeindex -s gglo.ist -o ptmpls.gls ptmpls.glo
 %\end{verbatim}
-% in required.
 %
-% To use the package for daily work, one may directly place the
-% \verb"ptmpls.dtx" into the
-% working folder and then extract everything using \verb"make" utilities.
-% And then macros like
+% To use the package, put the files of interest into the working folder. Then
+% macros like
 %\begin{verbatim}
 %\usepackage{pdef}
 %\end{verbatim}
@@ -256,12 +240,11 @@ and other files not specified belong to the public domain.
 %\begin{verbatim}
 %\documentclass{pnote}
 %\end{verbatim}
-% should then work smoothly. Options may be added according to the description
-% below.
+% should work in the usual way.
 %
 % \subsection{Extract with \texttt{make} utilities}
 %
-% There One may also use
+% A faster way to extract the files is to use
 %\begin{verbatim}
 %make
 %\end{verbatim}
@@ -269,11 +252,10 @@ and other files not specified belong to the public domain.
 %\begin{verbatim}
 %make all
 %\end{verbatim}
-% to automatically extract and compile all the things.
 %
 % \subsection{Clone from the GitHub repository}
-% For Git users, it is also possible to clone the repository from
-% GitHub or create submodules to keep up-to-date, by
+% 
+% After cloning from GitHub by
 %\begin{verbatim}
 %git clone git@github.com:pppppass/ptmpls
 %\end{verbatim}
@@ -281,26 +263,9 @@ and other files not specified belong to the public domain.
 %\begin{verbatim}
 %git submodule init git@github.com:ppppass/ptmpls
 %\end{verbatim}
-%
-% \subsection{Download the extracted package}
-% 
-% It is suggested to download only \verb"ptmpls.dtx" and extract the files on
-% one's own. However, a packed version of extracted files is also provided.
-% Please refer to
-%   \href{https://github.com/pppppass/textmpls/releases}{the release page}
-% for details.
-%
-% \subsection{Control the versions and installation}
-%
-% If one finds having copies of the same repository disturbing, it is possible
-% to use symbolic links to link necessary files and get around license issues.
-% A submodule for a repository composed by several separate \LaTeX{} articles
-% exemplifies this situation: linking merely \verb"pdef.sty" and
-% \verb"pnote.sty" to each folder is sufficient for \LaTeX ing.
-%
-% To install the package into the local folder, \verb"mktexlsr" can also be
-% used, but it is not fully tested. Hopefully, it will install the macro set
-% into \verb"tex/latex/ptmpls" and some other similar directories.
+% remember to execute `make` to get the files. There are archives of previous
+% releases at
+% \href{https://github.com/pppppass/textmpls/releases}{the release page}.
 %
 % \section{Personal macro package \texttt{pdef.sty}}
 %
@@ -313,7 +278,7 @@ and other files not specified belong to the public domain.
 % Provide the package itself.
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{pdef}[2020/03/14 1.4.2 Personal macro package]
+\ProvidesPackage{pdef}[2024/07/11 1.5.0 Personal macro package]
 %    \end{macrocode}
 %
 % Define functional macros.
@@ -358,9 +323,9 @@ and other files not specified belong to the public domain.
 % \DescribeMacro{\hideanno}
 % \DescribeMacro{\ifanno*ANNO*}
 % \changes{v1.4.0}{2019/10/06}{
-%   Add annotation mechanism.
+%   Annotations with switches
 % }
-% Define macros for annotation. Example usage is 
+% Define macros for annotation. Examplar usage is 
 %\begin{verbatim}
 %\setanno{draft}
 %\showanno{draft}
@@ -391,7 +356,7 @@ and other files not specified belong to the public domain.
 
 %    \end{macrocode}
 %
-% Set matrix column capacity.
+% Increase matrix column capacity.
 %    \begin{macrocode}
 \setcounter{MaxMatrixCols}{30}
 
@@ -402,8 +367,8 @@ and other files not specified belong to the public domain.
 % \DescribeMacro{\widehat}
 % \DescribeMacro{\widetriangle}
 % \DescribeMacro{\wideparen}
-% Provide wide mathematical accents from \textsf{yhmath} package. This snippet
-% is directly modified from \textsf{yhmath.sty}, as part of a derived work.
+% Provide wide mathematical accents from the \textsf{yhmath} package. This snippet
+% is a modification of \textsf{yhmath.sty}.
 %    \begin{macrocode}
 \ifpdef@opt@yhaccent
   \DeclareSymbolFont{largesymbolsyhmath}{OMX}{yhex}{m}{n}
@@ -417,18 +382,19 @@ and other files not specified belong to the public domain.
 %
 % \DescribeMacro{cgu}
 % \changes{v1.2.1}{2018/10/04}{
-%   Add synonym option \texttt{cgu}.
+%   Upright Greek letters
 % }
 % \DescribeMacro{cmrgreekup}
-% \DescribeMacro{\*GREEKCHAR*up}
-% Introduce upright Greek letters from CB Greek fonts as from \textsf{cbgreek}
-% package. This snippet is modifed from \verb"cbgreek.sty" as part of a derived
-% work. Refer to documentation of the package for visual effects. It seems that
-% this font suits better with Computer Modern family, while Adobe Symbol from
-% package \textsf{upgreek} (probably with option \verb"Symbolsmallscale") looks
-% better with Time New Roman family. The new macros are named \verb"\<greek>up"
-% here instead of \verb"\up<greek>" in \textsf{upgreek} to avoid conflicts. One
-% may use \verb"bm" to get bold versions.
+% \DescribeMacro{\LETTERup}
+% Introduce upright Greek letters from CB Greek fonts as from the
+% \textsf{cbgreek} package. This snippet is a modification of
+% \verb"cbgreek.sty"; refer to their documentation of the package for the
+% glyph table. The CB Greek fonts suit better paired with Computer Modern
+% family, while Adobe Symbol from package \textsf{upgreek}
+% (with option \verb"Symbolsmallscale") looks better paired with Time New Roman
+% family. The new macros are named \verb"\LETTERup" here instead of
+% \verb"\upLETTER" in \textsf{upgreek} to avoid conflicts. Use \verb"bm" for
+% boldface.
 %    \begin{macrocode}
 \pdef@temp@empty
 \pdef@test@cgu
@@ -466,7 +432,7 @@ and other files not specified belong to the public domain.
 %
 % \DescribeMacro{cgunfss}
 % \changes{v1.2.1}{2018/10/04}{
-%   Introduce NFSS fonts for Greek letters.
+%   NFSS Greek fonts
 % }
 % \DescribeMacro{\mathrmup}
 % \DescribeMacro{\mathbfup}
@@ -474,8 +440,8 @@ and other files not specified belong to the public domain.
 % \DescribeMacro{\mathitup}
 % \DescribeMacro{\mathttup}
 % \DescribeMacro{\mathslup}
-% Introduce NFSS fonts for Greek letters. For example, one may use
-% \verb"\mathbfup{a}" to get the bold Greek letter $\alpha$.
+% Introduce NFSS fonts for Greek letters. For example, use \verb"\mathbfup{a}"
+% to get the boldface upright $\alpha$.
 %    \begin{macrocode}
 \ifpdef@opt@cgunfss
   \RequirePackage[LGR,T1]{fontenc}
@@ -491,10 +457,10 @@ and other files not specified belong to the public domain.
 %    \end{macrocode}
 %
 % \DescribeMacro{safebm}
-% Set \verb"\hmmax" and \verb"\bmmax" to reduce the number of symbol fonts
-% used, while paying some efficiency in turn. If this option is invoked,
-% remember to postpone this package until all packages about symbols and fonts
-% have been loaded.
+% Set \verb"\hmmax" and \verb"\bmmax" in order to reduce the number of symbol
+% fonts in use while paying some efficiency in exachange. If this option is on,
+% try to postpone this package until all packages about symbols and fonts have
+% been loaded.
 %    \begin{macrocode}
 \ifpdef@opt@safebm
   \newcommand{\hmmax}{0}
@@ -505,7 +471,7 @@ and other files not specified belong to the public domain.
 %    \end{macrocode}
 %
 % \DescribeMacro{nosidefault}
-% Set up defaults for \textsf{siunitx} package.
+% Default settings for the package \textsf{siunitx}.
 %    \begin{macrocode}
 \ifpdef@opt@nosidefault\else
   \ifdefined\SI
@@ -520,7 +486,7 @@ and other files not specified belong to the public domain.
 
 %    \end{macrocode}
 %
-% Set up defaults for \textsf{listings} package.
+% Default settings for the package \textsf{listings}.
 % \DescribeMacro{nolstdefault}
 %    \begin{macrocode}
 \ifpdef@opt@nolstdefault\else
@@ -537,9 +503,9 @@ and other files not specified belong to the public domain.
 %    \end{macrocode}
 %
 %
-% \DescribeMacro{\showdraftbox}
+% \DescribeMacro{\sDefine macros forhowdraftbox}
 % \changes{v1.4.2}{2020/03/14}{
-%   Add bounding box indicators.
+%   Bounding box indicators
 % }
 % Show the bounding box for artitrary content. Use
 %\begin{verbatim}
@@ -563,7 +529,7 @@ and other files not specified belong to the public domain.
 %
 % \DescribeMacro{\showtikzbox}
 % \changes{v1.4.2}{2020/03/14}{
-%   Add TikZ bounding box indicators.
+%   TikZ bounding box indicators
 % }
 % Show the bounding box for TikZ pictures. Use
 %\begin{verbatim}
@@ -592,14 +558,10 @@ and other files not specified belong to the public domain.
 % \DescribeMacro{\sbr}
 % \DescribeMacro{\cbr}
 % \DescribeMacro{\pbr}
-% \changes{v1.4.0}{2019/10/06}{
-%   Fixed \texttt{pbr} by using \texttt{\textbackslash langle} and
-%   \texttt{\textbackslash rangle}.
-% }
 % \DescribeMacro{\fbr}
 % \DescribeMacro{\gbr}
-% Define shorthands for paired brackets. The option \verb"nomacro" is used to forbid
-% such definitions.
+% Define macros for paired brackets so that brackets have consistent semantics
+% and syntaxes. The option \verb"nomacro" disables these definitions.
 %    \begin{macrocode}
 \ifpdef@opt@nomacro\else
   \newcommand{\rbr}[1]{\left( #1 \right)}
@@ -618,9 +580,10 @@ and other files not specified belong to the public domain.
 % \DescribeMacro{\ffbr}
 % \DescribeMacro{\fgbr}
 % \changes{v1.4.0}{2019/10/06}{
-%   Introduce non-delimiter brackets.
+%   Fixed-size brackets
 % }
-% Define shorthands for non-delimiter brackets, where \texttt{f} for ``fixed''.
+% Define macros for fixed-size brackets which are not delimiters. Here
+% \texttt{f} stands for ``fixed''.
 %    \begin{macrocode}
   \newcommand{\frbr}[1]{( #1 )}
   \newcommand{\fsbr}[1]{[ #1 ]}
@@ -633,7 +596,7 @@ and other files not specified belong to the public domain.
 %
 % \DescribeMacro{\abs}
 % \DescribeMacro{\norm}
-% Define shorthands for norm-like brackets.
+% Define macros for norm-like brackets.
 %    \begin{macrocode}
   \newcommand{\abs}[1]{\left| #1 \right|}
   \newcommand{\norm}[1]{\left\| #1 \right\|}
@@ -647,9 +610,9 @@ and other files not specified belong to the public domain.
 % \DescribeMacro{\ffbr}
 % \DescribeMacro{\fgbr}
 % \changes{v1.4.1}{2020/02/22}{
-%   Introduce brackets with a specified variable size.
+%   Adjustable fixed-size brackets
 % }
-% Define shorthands for non-delimiter brackets with a specified variable size.
+% Define macros for adjustable fixed-size brackets which are not delimiters.
 % Here \texttt{b} stands for  ``big''.
 %    \begin{macrocode}
   \newcommand{\brbr}[2]{#1( #2 #1)}
@@ -665,7 +628,7 @@ and other files not specified belong to the public domain.
 %
 % \DescribeMacro{\mvert}
 % \DescribeMacro{\mnorm}
-% Define shorthands for middle delimiters.
+% Define macros for delimiter bars to be used in a pair of delimiter brackets.
 %    \begin{macrocode}
   \newcommand{\mvert}{\middle\vert}
   \newcommand{\mnorm}{\middle\|}
@@ -695,7 +658,7 @@ and other files not specified belong to the public domain.
 % \DescribeMacro{\mmbr}
 % \DescribeMacro{\mpbr}
 % \changes{v1.2.1}{2018/08/23}{
-%   Reintroduce matrix brackets.
+%   Matrix brackets.
 % }
 % Define brackets for matrices.
 %    \begin{macrocode}
@@ -711,20 +674,20 @@ and other files not specified belong to the public domain.
 %
 % \DescribeMacro{\bra}
 % \DescribeMacro{\ket}
-% \DescribeMacro{\braket}
-% \DescribeMacro{\bramidket}
-% Define shorthands for brackets in physics.
+% \DescribeMacro{\bk}
+% \DescribeMacro{\bmk}
+% Define macros for brackets in physics.
 %    \begin{macrocode}
   \newcommand{\bra}[1]{\left< #1 \right\vert}
   \newcommand{\ket}[1]{\left\vert #1 \right>}
-  \newcommand{\braket}[2]{\left< #1 \middle\vert #2 \right>}
-  \newcommand{\bramidket}[3]{\left< #1 \middle\vert #2 \middle\vert #3 \right>}
+  \newcommand{\bk}[2]{\left< #1 \middle\vert #2 \right>}
+  \newcommand{\bmk}[3]{\left< #1 \middle\vert #2 \middle\vert #3 \right>}
 
 %    \end{macrocode}
 %
 % \DescribeMacro{\bfrac}
 % \DescribeMacro{\nvbr}
-% Define shorthands for miscellaneous brackets.
+% Define macros for miscellaneous brackets.
 %    \begin{macrocode}
   \newcommand{\bfrac}[2]{\left. #1 \middle/ #2 \right.}
   \newcommand{\nvbr}[1]{\left. #1 \right\rvert}
@@ -733,7 +696,7 @@ and other files not specified belong to the public domain.
 %
 % \DescribeMacro{\narr}
 % \DescribeMacro{\sarr}
-% Define shorthands for array environments.
+% Define macros for array environments.
 %    \begin{macrocode}
   \newcommand{\narr}[2]{{\begin{array}{#1} #2 \end{array}}}
   \newcommand{\sarr}[2]{{\begin{subarray}{#1} #2 \end{subarray}}}
@@ -743,11 +706,11 @@ and other files not specified belong to the public domain.
 % \DescribeMacro{\sd}
 % \DescribeMacro{\pd}
 % \changes{v1.2.1}{2018/09/19}{
-%   Introduce differential operators with subscript.
+%   Subscripted differential operators
 % }
 % \DescribeMacro{\pdl}
 % \DescribeMacro{\ud}
-% Define shorthands for differential operators.
+% Define macros for differential operators.
 %    \begin{macrocode}
   \newcommand{\sd}[1][]{\mathop{\mathrm{d}^{#1} \!}}
   \newcommand{\pd}[1][]{\mathop{\partial^{#1} \!}}
@@ -761,7 +724,7 @@ and other files not specified belong to the public domain.
 % \DescribeMacro{\sj}
 % \DescribeMacro{\sk}
 % \DescribeMacro{\spi}
-% Define shorthands for special characters for mathematical constants.
+% Define macros for constants.
 %    \begin{macrocode}
   \newcommand{\se}{\mathrm{e}}
   \newcommand{\si}{\mathrm{i}}
@@ -782,7 +745,7 @@ and other files not specified belong to the public domain.
 % \DescribeMacro{\ptrel}
 % \DescribeMacro{\ptbin}
 % \DescribeMacro{\ptop}
-% Define shorthands for phantoms. This is useful to typeset aligned
+% Define macros for phantom whitespaces. This is useful to typeset aligned
 % multi-line equations, where the first equality is left out for indentation.
 %    \begin{macrocode}
   \newcommand{\ptrel}[1]{\mathrel{\phantom{#1}}}
@@ -793,8 +756,8 @@ and other files not specified belong to the public domain.
 %    \end{macrocode}
 %
 % \DescribeMacro{nopaper}
-% Introduce \textsf{ntheorem} and \textsf{enumitem} package which are common
-% for papers. Pass \verb"nopaper" option to suppress.
+% The \textsf{ntheorem} and \textsf{enumitem} packages are useful for paper
+% writing. Pass \verb"nopaper" option to suppress their introduction.
 %    \begin{macrocode}
 \ifpdef@opt@paper
   \RequirePackage{ntheorem}
@@ -829,7 +792,7 @@ and other files not specified belong to the public domain.
 %    \end{macrocode}
 %
 % Define theorem styles without numbering as extensions of \textsf{theorem}.
-% See \textsf{ntheorem} for details.
+% See the \textsf{ntheorem} package for details.
 %    \begin{macrocode}
   \newtheoremstyle{nonameplain}
   {\item[%
@@ -884,7 +847,7 @@ and other files not specified belong to the public domain.
 % Provide the document class itself.
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{pnote}[2019/10/06 1.4.0 Note class]
+\ProvidesClass{pnote}[2024/07/11 1.5.0 Note class]
 
 %    \end{macrocode}
 %
@@ -924,13 +887,14 @@ and other files not specified belong to the public domain.
 %
 % \DescribeMacro{doc}
 % \changes{v1.2.1}{2018/10/29}{
-%   Add new option \texttt{doc}.
+%   Option \texttt{doc}
 % }
 % \DescribeMacro{english}
 % \DescribeMacro{nochinese}
-% Load classes and pass options. By default Chinese typesetting environment
+% Load classes and pass options. By default, Chinese typesetting environment
 % is used. Use \verb"english" to change such localization, or use
-% \verb"nochinese" to suppress the package \textsf{ctex}.
+% \verb"nochinese" to suppress the package \textsf{ctex}. The option
+% \verb"ltxdoc" is only for internal use.
 %    \begin{macrocode}
 \ifpnote@opt@english
   \PassOptionsToClass{scheme=plain}{ctexart}
@@ -964,32 +928,32 @@ and other files not specified belong to the public domain.
 
 %    \end{macrocode}
 %
-% Set page layout.
+% Set the page layout.
 %    \begin{macrocode}
 \geometry{a4paper, top=1in, bottom=1in, left=1.25in, right=1.25in}
 
 %    \end{macrocode}
 %
-% Set page style.
+% Set the page style.
 %    \begin{macrocode}
 \pagestyle{plain}
 
 %    \end{macrocode}
 %
-% Set default linespread.
+% Set the default linespread.
 %    \begin{macrocode}
 \linespread{1.2}\selectfont
 
 %    \end{macrocode}
 %
-% Set line skips.
+% Set the default line skip.
 %    \begin{macrocode}
 \setlength\lineskiplimit{3pt}
 \setlength\lineskip{3pt}
 
 %    \end{macrocode}
 %
-% Allow breaking-page equations.
+% Allow multiple-page equations.
 %    \begin{macrocode}
 \allowdisplaybreaks
 
@@ -1011,7 +975,7 @@ and other files not specified belong to the public domain.
 % Provide the document class itself.
 %    \begin{macrocode}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{pslide}[2019/10/06 1.4.0 Slide class]
+\ProvidesClass{pslide}[2024/07/11 1.5.0 Slide class]
 
 %    \end{macrocode}
 %
@@ -1051,7 +1015,7 @@ and other files not specified belong to the public domain.
 % \DescribeMacro{english}
 % \DescribeMacro{nochinese}
 % Similar to \verb"pnote", the two options \verb"english" and \verb"nochinese"
-% switch localization configuration.
+% invoke different localization settings.
 %    \begin{macrocode}
 
 \ifpslide@opt@nochinese
@@ -1189,7 +1153,7 @@ and other files not specified belong to the public domain.
 
 %    \end{macrocode}
 %
-% Slide quotes utilities. General usage is
+% Slide quoting utilities. General usage is
 %\begin{verbatim}
 %\includepdf[pagecommand=\footquote{\footnotesize Authorship}, pages=1, scale=0.8]{Source.pdf}
 %\end{verbatim}
